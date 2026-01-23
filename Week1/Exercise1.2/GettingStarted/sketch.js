@@ -4,7 +4,11 @@ function setup() {
 }
 
 function draw() {
+    //array of flowers
+    let flowers = (['🌸', '💮', '🪷']);
+    //choose a random flower from the above array
+    let choice = random(flowers);
     frameRate(5);
     textSize(80);
-    text("🌸", mouseX, mouseY);
+    text(choice, mouseX, mouseY);
 }
