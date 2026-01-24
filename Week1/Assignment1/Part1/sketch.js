@@ -34,4 +34,17 @@ function draw() {
     point(390, 335);
     point(327, 350);
     point(310, 335);
+    //carrot nose
+    fill('#B16828');
+    noStroke();
+    beginShape();
+    vertex(350, 300);
+    vertex(300, 325);
+    vertex(357, 320);
+    endShape(CLOSE);
+    //arms
+    stroke('#58300D');
+    strokeWeight(20);
+    line(275, 425, 200, 330);
+    line(425, 425, 500, 330);
 }
