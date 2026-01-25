@@ -1,10 +1,17 @@
-//let grid;
-//let hatColor = prompt("What color should the hat be?");
+let hatColor = prompt("What color should the hat be? Type in lowercase color name.", 'black');
+let numberOfSnowFlakes = prompt('How many snowflakes should there be? Give me a number greater than 0.');
 
 function setup() {
     createCanvas(1000, 800);
-    background('#A3C3D9');
-    //grid = loadImage("assets/100px_grid.png");
+    background('#3c8cce');
+    //snowflake generator
+    strokeWeight(5);
+    stroke('white');
+    for (let i = 0; i < numberOfSnowFlakes; i++) {
+        let x = random(width);
+        let y = random(height);
+        point(x, y);
+    }
 }
 
 function draw() {
@@ -86,12 +93,22 @@ function draw() {
     line(275, 425, 200, 330);
     line(425, 425, 500, 330);
     //hat brim
-    //stroke(hatColor);
-    stroke('teal');
+    stroke(hatColor);
+    //stroke('teal');
     strokeWeight(30);
     line(275, 245, 425, 245);
     //hat body
-    //fill(hatColor);
-    fill('teal');
+    fill(hatColor);
+    //fill('teal');
     quad(300, 245, 300, 175, 400, 175, 400, 245);
+
+    //snowflake generator
+    strokeWeight(5);
+    stroke('white');
+    for (let i = 0; i < numberOfSnowFlakes; i++) {
+        let x = random(width);
+        let y = random(height);
+        point(x, y);
+        noLoop();
+    }
 }
