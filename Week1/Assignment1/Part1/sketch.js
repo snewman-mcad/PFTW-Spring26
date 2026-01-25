@@ -48,7 +48,7 @@ function draw() {
     line(275, 425, 200, 330);
     line(425, 425, 500, 330);
     //hat brim
-    stroke('#1a1a1a');
+    stroke(hatColor);
     strokeWeight(30);
     line(275, 245, 425, 245);
     //hat body
