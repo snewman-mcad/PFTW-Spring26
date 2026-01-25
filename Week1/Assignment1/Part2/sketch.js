@@ -176,7 +176,7 @@ function draw() {
     //fill('teal');
     quad(300, 245, 300, 175, 400, 175, 400, 245);
 
-    if (hasFriend = "yes") {
+    if (hasFriend === "yes") {
         //right snowman character
         fill('#E9ECF5');
         stroke('#CCD6EB');
@@ -215,10 +215,10 @@ function draw() {
         line(725, 425, 800, 330);
         //scarf
         noFill();
-        stroke('teal')
+        stroke('darkred');
         strokeWeight(40);
         arc(650, 365, 150, 50, 0, PI);
-        fill('teal');
+        fill('darkred');
         noStroke();
         quad(650, 600, 650, 400, 700, 400, 700, 600);
     }
