@@ -21,6 +21,7 @@ function draw() {
     noStroke();
     quad(0, 800, 0, 500, 1000, 500, 1000, 800);
 
+    //right tree
     //tree trunk
     fill('#58300D');
     beginShape();
@@ -54,6 +55,78 @@ function draw() {
         vertex(910, 365);
         vertex(875, 365);
         vertex(925, 425);
+    endShape(CLOSE);
+
+    //middle tree
+    //tree trunk
+    fill('#58300D');
+    beginShape();
+        vertex(500, 550);
+        vertex(510, 275);
+        vertex(540, 275);
+        vertex(550, 550);
+    endShape(CLOSE);
+    //tree needles
+    fill('#095e37');
+    beginShape();
+        vertex(425, 425);
+        vertex(475, 365);
+        //next up from bottom left point
+        vertex(440, 365);
+        vertex(485, 310);
+        //2nd up from bottom left point
+        vertex(455, 310);
+        vertex(505, 240);
+        //next down from top left point
+        vertex(485, 240);
+        //top middle point
+        vertex(525, 150);
+        //next down from top right point
+        vertex(565, 240);
+        vertex(545, 240);
+        //2nd up from bottom right point
+        vertex(595, 310);
+        vertex(565, 310);
+        //next up from bottom right point
+        vertex(610, 365);
+        vertex(575, 365);
+        vertex(625, 425);
+    endShape(CLOSE);
+
+    //left tree
+    //tree trunk
+    fill('#58300D');
+    beginShape();
+        vertex(200, 550);
+        vertex(210, 275);
+        vertex(240, 275);
+        vertex(250, 550);
+    endShape(CLOSE);
+    //tree needles
+    fill('#095e37');
+    beginShape();
+        vertex(125, 425);
+        vertex(175, 365);
+        //next up from bottom left point
+        vertex(140, 365);
+        vertex(185, 310);
+        //2nd up from bottom left point
+        vertex(155, 310);
+        vertex(205, 240);
+        //next down from top left point
+        vertex(185, 240);
+        //top middle point
+        vertex(225, 150);
+        //next down from top right point
+        vertex(265, 240);
+        vertex(245, 240);
+        //2nd up from bottom right point
+        vertex(295, 310);
+        vertex(265, 310);
+        //next up from bottom right point
+        vertex(310, 365);
+        vertex(275, 365);
+        vertex(325, 425);
     endShape(CLOSE);
 
     //snowman character
