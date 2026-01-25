@@ -1,4 +1,5 @@
 let hatColor = prompt("What color should the hat be? Type in lowercase color name.", 'black');
+let hasFriend = prompt("Does the snowman have a friend? yes or no", "yes")
 let numberOfSnowFlakes = prompt('How many snowflakes should there be? Give me a number greater than 0.');
 
 function setup() {
@@ -174,6 +175,53 @@ function draw() {
     fill(hatColor);
     //fill('teal');
     quad(300, 245, 300, 175, 400, 175, 400, 245);
+
+    if (hasFriend = "yes") {
+        //right snowman character
+        fill('#E9ECF5');
+        stroke('#CCD6EB');
+        strokeWeight(20);
+        //ellipse(x, y, w, [h])
+        //bottom ball
+        ellipse(650, 650, 300);
+        //middle ball
+        ellipse(650, 450, 200);
+        //top ball
+        ellipse(650, 300, 150);
+        //eyes
+        stroke('#1a1a1a');
+        strokeWeight(30);
+        point(600, 295);
+        point(700, 295);
+        //mouth
+        strokeWeight(15);
+        point(650, 355);
+        point(673, 350);
+        point(690, 335);
+        point(627, 350);
+        point(610, 335);
+        //carrot nose
+        fill('#B16828');
+        noStroke();
+        beginShape();
+            vertex(650, 300);
+            vertex(600, 325);
+            vertex(657, 320);
+        endShape(CLOSE);
+        //arms
+        stroke('#58300D');
+        strokeWeight(20);
+        line(575, 425, 500, 330);
+        line(725, 425, 800, 330);
+        //scarf
+        noFill();
+        stroke('teal')
+        strokeWeight(40);
+        arc(650, 365, 150, 50, 0, PI);
+        fill('teal');
+        noStroke();
+        quad(650, 600, 650, 400, 700, 400, 700, 600);
+    }
 
     //snowflake generator
     strokeWeight(5);
