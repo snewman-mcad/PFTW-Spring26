@@ -1,9 +1,14 @@
+let grid;
+let hatColor = prompt("What color should the hat be?");
+
 function setup() {
     createCanvas(1000, 800);
     background('#A3C3D9');
+    grid = loadImage("assets/100px_grid.png");
 }
 
 function draw() {
+    //background(grid);
     fill('#E9ECF5');
     //ground snow
     noStroke();
@@ -17,14 +22,9 @@ function draw() {
     ellipse(350, 450, 200);
     //top ball
     ellipse(350, 300, 150);
-    //hat brim
+    //eyes
     stroke('#1a1a1a');
     strokeWeight(30);
-    line(275, 245, 425, 245);
-    //hat body
-    fill('#1a1a1a');
-    quad(300, 245, 300, 175, 400, 175, 400, 245);
-    //eyes
     point(300, 295);
     point(400, 295);
     //mouth
@@ -47,4 +47,11 @@ function draw() {
     strokeWeight(20);
     line(275, 425, 200, 330);
     line(425, 425, 500, 330);
+    //hat brim
+    stroke('#1a1a1a');
+    strokeWeight(30);
+    line(275, 245, 425, 245);
+    //hat body
+    fill(hatColor);
+    quad(300, 245, 300, 175, 400, 175, 400, 245);
 }
