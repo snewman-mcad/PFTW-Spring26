@@ -29,4 +29,9 @@ const questionsAndAnswers = [
 //generate a random number based on the length of the array questionsAndAnswers
 //added in Math.floor to round down to give whole numbers
 const randomNumber = Math.floor(Math.random() * questionsAndAnswers.length);
-console.log("random number", randomNumber);
+
+//generates a random question, from the above array, for the user to answer
+let userAnswer = window.prompt(questionsAndAnswers[randomNumber].question);
+
+//alerts the user that they answered and what their answer was
+window.alert("You answered: " + userAnswer);
