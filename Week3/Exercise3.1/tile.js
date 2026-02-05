@@ -12,6 +12,44 @@ function createTile() {
     line(100, 200, 200, 100);
     line(0, 100, 100, 0);
     line(0, 100, 100, 200);
+
+    //making some leaves
+    //rgd code for evergreen
+    fill(19, 42, 19);
+    noStroke();
+    //upper left leaf
+    beginShape();
+    //first anchor point
+    vertex(40, 45);
+    //add bezier vertices
+    bezierVertex(80, 50, 100, 30, 100, 100);
+    bezierVertex(80, 120, 50, 100, 40, 45);
+    //stop drawing shape
+    endShape();
+
+    //upper right dark leaf
+    beginShape();
+    vertex(185, 70);
+    bezierVertex(120, 50, 120, 80, 100, 100);
+    bezierVertex(180, 120, 150, 100, 185, 70);
+    endShape();
+
+    //lower left leaf
+    beginShape();
+    vertex(70, 185);
+    bezierVertex(100, 120, 100, 140, 100, 100);
+    bezierVertex(50, 100, 40, 140, 70, 185);
+    endShape();
+
+    //rgb code for hunter green
+    fill(49, 87, 44);
+    //upper right lighter leaf
+    beginShape();
+    vertex(160, 50);
+    bezierVertex(120, 50, 120, 80, 100, 100);
+    bezierVertex(160, 100, 150, 100, 160, 50);
+    endShape();
+
     //making a flower in the center of the square using circles
     //saffron colored back petals
     noStroke();
@@ -51,6 +89,7 @@ function createTile() {
     //rgb code for oxblood
     fill(157, 2, 8);
     circle(100, 100, 35);
+
     //adding some stamens
     //rgb code is for night bordeaux
     noFill();
@@ -71,6 +110,7 @@ function createTile() {
     point(110, 100);
     point(106, 108);
 }
+
 function draw() {
     createTile();
     noLoop();
