@@ -1,7 +1,20 @@
 function setup() {
     createCanvas(600, 600);
 }
-function createTile(originX, originY) {
+
+//creating color variables
+const evergreen = [19, 42, 19];
+const hunterGreen = [49, 87, 44];
+const saffron = [244, 140, 6];
+const amberFlame = [255, 186, 8];
+const gold = [255, 215, 7];
+const oxblood = [157, 2, 8];
+const nightBordeaux = [55, 6, 23];
+const cherryBlossom = [255, 179, 193];
+const cottonCandy = [255, 128, 151];
+const bubblegum = [255, 77, 109];
+
+function createTile(originX, originY, backPetals, middlePetals, innerPetals) {
     translate(originX, originY);
     fill('teal');
     noStroke();
@@ -14,8 +27,7 @@ function createTile(originX, originY) {
     line(0, 100, 100, 200);
 
     //making some leaves
-    //rgd code for evergreen
-    fill(19, 42, 19);
+    fill(evergreen);
     noStroke();
     //upper left leaf
     beginShape();
@@ -41,8 +53,7 @@ function createTile(originX, originY) {
     bezierVertex(50, 100, 40, 140, 70, 185);
     endShape();
 
-    //rgb code for hunter green
-    fill(49, 87, 44);
+    fill(hunterGreen);
     //upper right lighter leaf
     beginShape();
     vertex(160, 50);
@@ -51,10 +62,8 @@ function createTile(originX, originY) {
     endShape();
 
     //making a flower in the center of the square using circles
-    //saffron colored back petals
     noStroke();
-    //rgb code for deep saffron
-    fill(244, 140, 6);
+    fill(backPetals);
     //upper left circle/petal
     circle(80, 80, 50);
     //upper right circle/petal
@@ -63,9 +72,7 @@ function createTile(originX, originY) {
     circle(120, 120, 50);
     //lower left circle/petal
     circle(80, 120, 50);
-    //amber colored flower petals
-    //rgb code for amber flame
-    fill(255, 186, 8);
+    fill(middlePetals);
     //top circle/petal
     circle(100, 70, 50);
     //left circle/petal
@@ -74,9 +81,7 @@ function createTile(originX, originY) {
     circle(130, 100, 50);
     //bottom circle/petal
     circle(100, 130, 50);
-    //gold colored inner flower petals
-    //rgb code for gold
-    fill(255, 215, 7);
+    fill(innerPetals);
     //upper left inner petal
     circle(90, 90, 45);
     //upper right inner petal
@@ -86,14 +91,12 @@ function createTile(originX, originY) {
     //lower left inner petal
     circle(90, 110, 45);
     //center of flower
-    //rgb code for oxblood
-    fill(157, 2, 8);
+    fill(oxblood);
     circle(100, 100, 35);
 
     //adding some stamens
-    //rgb code is for night bordeaux
     noFill();
-    stroke(55, 6, 23);
+    stroke(nightBordeaux);
     strokeWeight(5);
     //using points for stamens within the oxblood circle
     point(95, 95);
@@ -112,14 +115,14 @@ function createTile(originX, originY) {
 }
 
 function draw() {
-    createTile(0, 0);
-    createTile(0, 200);
-    createTile(0, 200);
-    createTile(200, -400);
-    createTile(0, 200);
-    createTile(0, 200);
-    createTile(200, -400);
-    createTile(0, 200);
-    createTile(0, 200);
+    createTile(0, 0, saffron, amberFlame, gold);
+    createTile(0, 200, bubblegum, cottonCandy, cherryBlossom);
+    createTile(0, 200, saffron, amberFlame, gold);
+    createTile(200, -400, bubblegum, cottonCandy, cherryBlossom);
+    createTile(0, 200, saffron, amberFlame, gold);
+    createTile(0, 200, bubblegum, cottonCandy, cherryBlossom);
+    createTile(200, -400, saffron, amberFlame, gold);
+    createTile(0, 200, bubblegum, cottonCandy, cherryBlossom);
+    createTile(0, 200, saffron, amberFlame, gold);
     noLoop();
 }
