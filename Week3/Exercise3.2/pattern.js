@@ -13,10 +13,16 @@ const nightBordeaux = [55, 6, 23];
 const cherryBlossom = [255, 179, 193];
 const cottonCandy = [255, 128, 151];
 const bubblegum = [255, 77, 109];
+const mauve = [199, 125, 255];
+const purple = [157, 78, 221];
+const violet = [123, 44, 191];
+const aqua = [72, 202, 228];
+const turquoise = [0, 180, 216];
+const blueGreen = [0, 150, 199];
 
-function createTile(originX, originY, backPetals, middlePetals, innerPetals) {
+function createTile(originX, originY, backPetals, middlePetals, innerPetals, behindTrellis) {
     translate(originX, originY);
-    fill('teal');
+    fill(behindTrellis);
     noStroke();
     rect(0, 0, 200, 200);
     stroke('white');
@@ -115,14 +121,10 @@ function createTile(originX, originY, backPetals, middlePetals, innerPetals) {
 }
 
 function draw() {
-    createTile(0, 0, saffron, amberFlame, gold);
-    createTile(0, 200, bubblegum, cottonCandy, cherryBlossom);
-    createTile(0, 200, saffron, amberFlame, gold);
-    createTile(200, -400, bubblegum, cottonCandy, cherryBlossom);
-    createTile(0, 200, saffron, amberFlame, gold);
-    createTile(0, 200, bubblegum, cottonCandy, cherryBlossom);
-    createTile(200, -400, saffron, amberFlame, gold);
-    createTile(0, 200, bubblegum, cottonCandy, cherryBlossom);
-    createTile(0, 200, saffron, amberFlame, gold);
-    noLoop();
+    createTile(0, 0, saffron, amberFlame, gold, aqua);
+    for (let i = 0; i < 3; i++) {
+        createTile(0, 200, bubblegum, cottonCandy, cherryBlossom, turquoise);
+        createTile(0, 200, violet, purple, mauve, blueGreen);
+        createTile(200, -400, saffron, amberFlame, gold, aqua);
+    }
 }
