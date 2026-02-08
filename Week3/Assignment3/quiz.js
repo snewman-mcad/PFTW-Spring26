@@ -4,6 +4,7 @@ let currentQuestion;
 let response;
 let responseColor = 'green';
 let heading;
+let wrongCounter = 0;
 let statements = [
     {question: 'What color is opposite blue on the color wheel?', answer: 'orange'}, 
     {question: 'What color is opposite yellow on the color wheel?', answer: 'purple'}, 
@@ -13,7 +14,7 @@ let statements = [
     {question: 'What color is made by combining opposites on the color wheel?', answer: 'brown'} 
 ];
 function next() {
-    if(statements.length < 1) {
+    if (statements.length < 1) {
         alert('You won!');
         return;
     }
@@ -33,8 +34,10 @@ function checkQuestion() {
         //this is the wrong answer condition
         response = 'oops, that wasn\'t quite right! try another question';
         responseColor = 'red';
+        wrongCounter = (wrongCounter + 1);
     }
     currentQuestion = next();
+    //clears out previous answer
     questionInput.value('');
     if (currentQuestion) {
         message = currentQuestion.question;
@@ -64,4 +67,6 @@ function draw() {
     text(message, 100, 200);
     fill(responseColor);
     text(response, 100, 350);
+    fill('magenta');
+    text('amount wrong ' + wrongCounter, 500, 50);
 }
