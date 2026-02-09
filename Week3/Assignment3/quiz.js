@@ -11,14 +11,15 @@ let statements = createStatementArray();
 function createStatementArray() {
     //making the function return an array so that I can use the function for the reset button later
     return [
-    {question: 'What color is opposite blue on the color wheel?', answer: 'orange'}, 
+    {question: 'What color is opposite orange on the color wheel?', answer: 'blue'}, 
     {question: 'What color is opposite yellow on the color wheel?', answer: 'purple'}, 
     {question: 'What color is opposite red on the color wheel?', answer: 'green'}, 
     {question: 'When white is added to red, what color is produced?', answer: 'pink'}, 
-    {question: 'What visible color produces the longest waves of light?', answer: 'red'}, 
+    {question: 'What color do you get when you mix yellow and red?', answer: 'orange'}, 
     {question: 'What color is made by combining opposites on the color wheel?', answer: 'brown'} 
     ];
 }
+
 function next() {
     if (statements.length < 1) {
         alert('You won!');
@@ -29,6 +30,7 @@ function next() {
     //return the object in the array that matches the index of the random number
     return statements[randomIndex];
 }
+
 function checkQuestion() {
     if (currentQuestion.answer === questionInput.value()) {
         //remove correct answer from array
@@ -76,6 +78,7 @@ function resetQuiz () {
 
 function setup() {
     createCanvas(800, 600);
+    textFont("Figtree");
     heading = createElement('h1', ['Color Quiz']);
     heading.position(100, 100);
     questionInput = createInput('');
@@ -92,8 +95,8 @@ function setup() {
 }
 
 function draw() {
-    background('lightblue');
-    fill('purple');
+    background(254, 250, 224);
+    fill(61, 43, 86);
     textSize(24);
     //displays the current question
     text(message, 100, 200);
@@ -101,9 +104,10 @@ function draw() {
     fill(responseColor);
     //displays the response text (either correct or incorrect)
     text(response, 100, 350);
-    fill('magenta');
+    fill(221, 4, 38);
     //displays the count of questions answered incorrectly
     text('amount wrong: ' + wrongCounter, 500, 50);
+    fill(61, 43, 86);
     //displays all choices at the bottom
     text(choices, 100, 450);
 }
