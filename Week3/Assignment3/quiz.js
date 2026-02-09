@@ -5,6 +5,7 @@ let currentQuestion;
 let response;
 let responseColor = 'green';
 let heading;
+let subheading;
 let wrongCounter = 0;
 let statements = createStatementArray();
 
@@ -21,6 +22,7 @@ function createStatementArray() {
 }
 
 function next() {
+    //if there are no more questions, alert the user that they have won
     if (statements.length < 1) {
         alert('You won!');
         return;
@@ -32,7 +34,18 @@ function next() {
 }
 
 function checkQuestion() {
-    if (currentQuestion.answer === questionInput.value()) {
+    //alerting the user to restart the quiz when there are no more questions
+    if (currentQuestion === undefined) {
+        alert('Please reset quiz.');
+        return;
+    }
+    //asking user to enter an answer if they try to submit nothing
+    //.trim gets rid of white space just in case user tries to enter only spaces
+    if (questionInput.value().trim() === '') {
+        alert('Please enter an answer.');
+        return;
+    }
+    if (currentQuestion.answer === questionInput.value().trim()) {
         //remove correct answer from array
         //keeps all incorrect values in the array by returning back all incorrect values
         statements = statements.filter(statementObj => {
@@ -43,12 +56,13 @@ function checkQuestion() {
         responseColor = 'green';
     } else {
         //this is the wrong answer condition
-        response = 'oops, that wasn\'t quite right! try another question';
+        response = 'Oops, that wasn\'t quite right! Try another question.';
         responseColor = 'red';
+        //adds to the wrong number counter by increments of one
         wrongCounter = (wrongCounter + 1);
-        //keeps track of the amount of wrong answers given
+        //keeps track of the amount of wrong answers given and if the wrong answers equal 5, tells the user to try again
         if (wrongCounter >= 5) {
-            alert('Sorry, you guessed wrong too many times. Try again.');
+            alert('Sorry, you guessed wrong too many times. Reset the quiz and try again.');
         }
     }
     currentQuestion = next();
@@ -59,15 +73,15 @@ function checkQuestion() {
     }
 }
 
-//calls the next function to get the next random question
-currentQuestion = next();
-//the message is the current question that was given by the next function
-let message = currentQuestion.question;
-
-let choices = '';
-statements.forEach((statements) => {
-    choices = choices + statements.answer + '       ';
-});
+function getChoices() {
+    //creating variable to use to display the answers to choose from
+    let choices = '';
+    //looping through the statements array to retrieve all of the answers
+    statements.forEach((statements) => {
+        choices = choices + statements.answer + '       ';
+    });
+    return choices;
+}
 
 function resetQuiz () {
     //resets the count for amount wrong to 0
@@ -76,26 +90,38 @@ function resetQuiz () {
     statements = createStatementArray();
 }
 
+//calls the next function to get the next random question
+currentQuestion = next();
+//the message is the current question that was given by the next function
+let message = currentQuestion.question;
+
 function setup() {
     createCanvas(800, 600);
     textFont("Figtree");
+    //creating heading for Color Quiz
     heading = createElement('h1', ['Color Quiz']);
     heading.position(100, 100);
+    //creating subheading for answers remaing
+    subheading = createElement('h2', ['Possible answers remaining:']);
+    subheading.position(100, 370);
+    //creating input text box
     questionInput = createInput('');
     questionInput.size(250, 24);
     questionInput.position(100, 220);
+    //creating submit answer button
     submitAnswerButton = createButton('submit');
     submitAnswerButton.size(250, 24);
     submitAnswerButton.mousePressed(checkQuestion);
     submitAnswerButton.position(100, 260);
+    //creating reset button
     resetButton = createButton('reset quiz');
-    resetButton.size(200, 24);
-    resetButton.position(500, 70);
+    resetButton.size(100, 24);
+    resetButton.position(550, 70);
     resetButton.mousePressed(resetQuiz);
 }
 
 function draw() {
-    background(254, 250, 224);
+    background(240, 250, 249);
     fill(61, 43, 86);
     textSize(24);
     //displays the current question
@@ -109,5 +135,5 @@ function draw() {
     text('amount wrong: ' + wrongCounter, 500, 50);
     fill(61, 43, 86);
     //displays all choices at the bottom
-    text(choices, 100, 450);
+    text(getChoices(), 100, 450);
 }
