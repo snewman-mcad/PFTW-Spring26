@@ -52,7 +52,7 @@ function checkQuestion() {
             return currentQuestion.answer !== statementObj.answer;
         });
         //this is the correct condition
-        response = 'correct! next question';
+        response = 'Correct! Next question!';
         responseColor = 'green';
     } else {
         //this is the wrong answer condition
@@ -61,7 +61,7 @@ function checkQuestion() {
         //adds to the wrong number counter by increments of one
         wrongCounter = (wrongCounter + 1);
         //keeps track of the amount of wrong answers given and if the wrong answers equal 5, tells the user to try again
-        if (wrongCounter >= 5) {
+        if (wrongCounter === 5) {
             alert('Sorry, you guessed wrong too many times. Reset the quiz and try again.');
         }
     }
@@ -88,6 +88,7 @@ function resetQuiz () {
     wrongCounter = 0;
     //resets the statement array to include all of the questions/answers
     statements = createStatementArray();
+    response = '';
 }
 
 //calls the next function to get the next random question
@@ -100,19 +101,19 @@ function setup() {
     textFont("Figtree");
     //creating heading for Color Quiz
     heading = createElement('h1', ['Color Quiz']);
-    heading.position(100, 100);
+    heading.position(75, 100);
     //creating subheading for answers remaing
     subheading = createElement('h2', ['Possible answers remaining:']);
-    subheading.position(100, 370);
+    subheading.position(75, 370);
     //creating input text box
     questionInput = createInput('');
     questionInput.size(250, 24);
-    questionInput.position(100, 220);
+    questionInput.position(100, 230);
     //creating submit answer button
     submitAnswerButton = createButton('submit');
-    submitAnswerButton.size(250, 24);
+    submitAnswerButton.size(150, 24);
     submitAnswerButton.mousePressed(checkQuestion);
-    submitAnswerButton.position(100, 260);
+    submitAnswerButton.position(150, 270);
     //creating reset button
     resetButton = createButton('reset quiz');
     resetButton.size(100, 24);
@@ -125,7 +126,7 @@ function draw() {
     fill(61, 43, 86);
     textSize(24);
     //displays the current question
-    text(message, 100, 200);
+    text(message, 75, 200);
     //response color will be either red or green based on whether the user answered correctly or incorrectly
     fill(responseColor);
     //displays the response text (either correct or incorrect)
