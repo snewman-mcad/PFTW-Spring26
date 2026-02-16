@@ -27,6 +27,13 @@ function createCard () {
     strokeWeight(4);
     stroke(25, 38, 70);
     rect(cardX, cardY, cardWidth, cardHeight, 10);
+    //start of creating a pokeball
+    fill('red');
+    strokeWeight(2);
+    circle(cardX + cardWidth/2, cardY + cardHeight/2, 90);
+    fill('white');
+    arc(cardX + cardWidth/2, cardY + cardHeight/2, 90, 90, 0, PI, PIE);
+    circle(cardX + cardWidth/2, cardY + cardHeight/2, 20);
 }
 
 function mousePressed () {
