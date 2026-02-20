@@ -1,22 +1,42 @@
-let myCard;
 //creating constants for face down and face up
 const DOWN = 'down';
 const UP = 'up';
+let startingX = 50;
+let startingY = 120;
+let cards = [];
+const gameState = {
+
+}
 
 function setup () {
     createCanvas(1150, 900);
     background('aliceblue');
-    myCard = new Card();
+    //making 3 rows of cards
+    for (let j = 0; j < 3; j++) {
+        //making 6 columns of cards
+        for (let i = 0; i < 6; i++) {
+            cards.push(new Card(startingX, startingY));
+            startingX += 180;
+        }
+        //reseting the x and y for the start of each row
+        startingX = 50;
+        startingY += 230;
+    }
+    
 }
 
 function mousePressed () {
-    console.log(myCard.didHit(mouseX, mouseY));
+    for (let k = 0; k < cards.length; k++) {
+        if (cards[k].didHit(mouseX, mouseY)) {
+            console.log('flipped');
+        }
+    }
 }
 
 class Card {
-    constructor () {
-        this.x = 50;
-        this.y = 120;
+    constructor (x, y) {
+        this.x = x;
+        this.y = y;
         this.width = 150;
         this.height = 200;
         this.face = DOWN;
