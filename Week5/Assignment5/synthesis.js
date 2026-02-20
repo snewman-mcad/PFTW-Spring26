@@ -39,6 +39,8 @@ function setup () {
         //remove the used card front so that it doesn't get randomly selected again
         cardFrontArray.splice(randomIndex, 1);
     }
+    //shuffles/randomizes the card fronts
+    selectedFronts = shuffleArray(selectedFronts);
     //making 3 rows of cards
     for (let j = 0; j < 3; j++) {
         //making 6 columns of cards
@@ -53,7 +55,6 @@ function setup () {
         startingX = 50;
         startingY += 230;
     }
-    
 }
 
 function mousePressed () {
@@ -119,4 +120,19 @@ class Card {
         }
         this.show();
     }
+}
+
+function shuffleArray (array) {
+    let counter = array.length;
+    while (counter > 0) {
+        //pick random index
+        const index = Math.floor(Math.random() * counter);
+        //decrease the counter by 1 (decrement)
+        counter--;
+        //swap the last element with it
+        const temp = array[counter];
+        array[counter] = array[index];
+        array[index] = temp;
+    }
+    return array;
 }
