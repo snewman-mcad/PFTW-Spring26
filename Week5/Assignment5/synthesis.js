@@ -1,8 +1,10 @@
 //creating constants for face down and face up
 const DOWN = 'down';
 const UP = 'up';
+//first card starts at these coordinates
 let startingX = 50;
 let startingY = 120;
+//empty array to add cards into
 let cards = [];
 const gameState = {
     totalPairs: 9,
@@ -25,6 +27,7 @@ function preload () {
         loadImage('img/Umbreon-150x200.png'),
         loadImage('img/Vaporeon-150x200.png'),
     ]
+    fontPokemon = loadFont('font/PokemonSolid.ttf');
 }
 
 function setup () {
@@ -63,12 +66,12 @@ function setup () {
 
 function draw () {
     background('aliceblue');
-    if (gameState.numberOfMatches === gameState.totalPairs) {
-        fill('green');
-        textSize(60);
-        text('you win!', 400, 425);
-        noLoop();
-    }
+    textSize(60);
+    strokeWeight(5);
+    stroke('midnightblue');
+    fill('yellow');
+    textFont(fontPokemon);
+    text('Match that Pokémon!', 260, 80);
     for (let r = 0; r < cards.length; r++) {
         //if cards do not match
         if (!cards[r].isMatch) {
@@ -76,13 +79,25 @@ function draw () {
         }
         cards[r].show();
     }
+    if (gameState.numberOfMatches === gameState.totalPairs) {
+        fill(64, 188, 216, 200);
+        rect(215, 300, 720, 200);
+        strokeWeight(5);
+        stroke('midnightblue');
+        fill('yellow');
+        textSize(60);
+        text('You Matched Them All!', 255, 425);
+        noLoop();
+    }
     noLoop();
     gameState.flippedCards.length = 0;
     gameState.waiting = false;
-    fill(0);
     textSize(36);
-    text('attempts ' + gameState.attempts, 300, 840);
-    text('matches ' + gameState.numberOfMatches, 50, 840);
+    strokeWeight(5);
+    stroke('midnightblue');
+    fill('yellow');
+    text('attempts ' + gameState.attempts, 300, 850);
+    text('matches ' + gameState.numberOfMatches, 50, 850);
 }
 
 function mousePressed () {
@@ -99,6 +114,7 @@ function mousePressed () {
     }
     //if two cards have been flipped, check to see if they match
     if (gameState.flippedCards.length === 2) {
+        gameState.attempts++;
         if (gameState.flippedCards[0].cardFrontImg === gameState.flippedCards[1].cardFrontImg) {
             //mark cards as matched so that they don't flip back over
             gameState.flippedCards[0].isMatch = true;
