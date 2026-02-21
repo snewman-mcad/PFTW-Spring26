@@ -5,7 +5,11 @@ let startingX = 50;
 let startingY = 120;
 let cards = [];
 const gameState = {
-
+    totalPairs: 9,
+    flippedCards: [],
+    numberOfMatches: 0,
+    attempts: 0,
+    waiting: false
 }
 
 let cardFrontArray = [];
@@ -57,11 +61,60 @@ function setup () {
     }
 }
 
+function draw () {
+    background('aliceblue');
+    if (gameState.numberOfMatches === gameState.totalPairs) {
+        fill('green');
+        textSize(60);
+        text('you win!', 400, 425);
+        noLoop();
+    }
+    for (let r = 0; r < cards.length; r++) {
+        //if cards do not match
+        if (!cards[r].isMatch) {
+            cards[r].face = DOWN;
+        }
+        cards[r].show();
+    }
+    noLoop();
+    gameState.flippedCards.length = 0;
+    gameState.waiting = false;
+    fill(0);
+    textSize(36);
+    text('attempts ' + gameState.attempts, 300, 840);
+    text('matches ' + gameState.numberOfMatches, 50, 840);
+}
+
 function mousePressed () {
+    if (gameState.waiting) {
+        //if in a waiting state, stop the rest of the function
+        return;
+    }
     for (let k = 0; k < cards.length; k++) {
-        //checking if the cards in the array were clicked
-        if (cards[k].didHit(mouseX, mouseY)) {
+        //checking flipped cards length, and then trigger the flip
+        if (gameState.flippedCards.length < 2 && cards[k].didHit(mouseX, mouseY)) {
             console.log('flipped', cards[k]);
+            gameState.flippedCards.push(cards[k]);
+        }
+    }
+    //if two cards have been flipped, check to see if they match
+    if (gameState.flippedCards.length === 2) {
+        if (gameState.flippedCards[0].cardFrontImg === gameState.flippedCards[1].cardFrontImg) {
+            //mark cards as matched so that they don't flip back over
+            gameState.flippedCards[0].isMatch = true;
+            gameState.flippedCards[1].isMatch = true;
+            //reset the array length to zero to clear the array
+            gameState.flippedCards.length = 0;
+            //increment the correct number of matches for the score
+            gameState.numberOfMatches++;
+            //want to continue the loop
+            loop();
+        } else {
+            gameState.waiting = true;
+            const loopTimeout = window.setTimeout(() => {
+                loop();
+                window.clearTimeout(loopTimeout);
+            }, 1000)
         }
     }
 }
@@ -73,16 +126,24 @@ class Card {
         this.width = 150;
         this.height = 200;
         this.face = DOWN;
-        this.cardFrontImg = cardFrontImg
+        this.cardFrontImg = cardFrontImg;
+        this.isMatch;
         this.show();
     }
     show () {
-        if (this.face === DOWN) {
+        if (this.face === UP || this.isMatch) {
+            //front of card
+            fill('white');
+            strokeWeight(4);
+            stroke('midnightblue');
+            rect(this.x, this.y, this.width, this.height, 10);
+            image(this.cardFrontImg, this.x, this.y);
+        } else {  
             //back of card
             fill(0, 101, 161);
             strokeWeight(4);
             stroke(25, 38, 70);
-            rect(this.x, this.y, this.width, this.height, 10)
+            rect(this.x, this.y, this.width, this.height, 10);
             //start of creating a pokeball
             fill('red');
             strokeWeight(2);
@@ -90,13 +151,6 @@ class Card {
             fill('white');
             arc(this.x + this.width/2, this.y + this.height/2, 90, 90, 0, PI, PIE);
             circle(this.x + this.width/2, this.y + this.height/2, 20);
-        } else {
-            //front of card
-            fill('white');
-            strokeWeight(4);
-            stroke('midnightblue');
-            rect(this.x, this.y, this.width, this.height, 10);
-            image(this.cardFrontImg, this.x, this.y);
         }
     }
 
