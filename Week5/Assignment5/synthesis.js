@@ -80,6 +80,7 @@ function draw () {
         cards[r].show();
     }
     if (gameState.numberOfMatches === gameState.totalPairs) {
+        //text in a box to display when user has matched all of the cards and won the game
         fill(64, 188, 216, 200);
         rect(215, 300, 720, 200);
         strokeWeight(5);
@@ -87,6 +88,18 @@ function draw () {
         fill('yellow');
         textSize(60);
         text('You Matched Them All!', 255, 425);
+        //new text in a box will display after 1.5 seconds to ask user to refresh window to play again
+        const timeout = window.setTimeout(() => {
+            fill(64, 188, 216, 200);
+            strokeWeight(4);
+            stroke('midnightblue');
+            rect(190, 570, 770, 100);
+            strokeWeight(5);
+            fill('yellow');
+            textSize(36);
+            text('Please refresh the window to play again', 205, 635);
+            window.clearTimeout(timeout);
+        }, 1500)
         noLoop();
     }
     noLoop();
@@ -278,7 +291,8 @@ class Card {
 
     didHit (mouseX, mouseY) {
         //detection for clicking the card
-        if (mouseX >= this.x && mouseX <= this.x + this.width && mouseY >= this.y && mouseY <= this.y + this.height) {
+        //added condition for face === down so that you can't click a face up card twice and get a match (also means you can't keep clicking after finishing the game and obtain more 'matches')
+        if (mouseX >= this.x && mouseX <= this.x + this.width && mouseY >= this.y && mouseY <= this.y + this.height && this.face === DOWN) {
             //if the card is clicked, flips the card
             this.flip();
             return true;
