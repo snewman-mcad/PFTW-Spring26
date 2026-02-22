@@ -156,13 +156,119 @@ class Card {
             image(this.cardFrontImg, this.x, this.y);
         } else {  
             //back of card
-            fill(0, 101, 161);
+            fill(37, 53, 98);
             strokeWeight(4);
             stroke(25, 38, 70);
             rect(this.x, this.y, this.width, this.height, 10);
+
+            fill(64, 188, 216, 150);
+            noStroke();
+            //making the swirled shapes
+            //top large mid-blue swirl
+            beginShape();
+            //first anchor point
+            vertex(this.x + 25, this.y + 2);
+            //add bezier vertices
+            bezierVertex(this.x + 25, this.y + 2, this.x - 25, this.y + 80, this.x + 75, this.y + 100);
+            bezierVertex(this.x + 75, this.y + 100, this.x + 75, this.y + 20, this.x + 148, this.y + 50);
+            vertex(this.x + 148, this.y + 10);
+            bezierVertex(this.x + 148, this.y + 10, this.x + 148, this.y, this.x + 138, this.y + 2);
+            //stop drawing shape
+            endShape();
+
+            //bottom large mid-blue swirl
+            beginShape();
+            vertex(this.x + 125, this.y + 198);
+            bezierVertex(this.x + 125, this.y + 198, this.x + 175, this.y + 120, this.x + 75, this.y + 100);
+            bezierVertex(this.x + 75, this.y + 100, this.x + 75, this.y + 190, this.x + 2, this.y + 150);
+            vertex(this.x + 2, this.y + 190);
+            bezierVertex(this.x + 2, this.y + 190, this.x + 2, this.y + 198, this.x + 12, this.y + 198);
+            endShape();
+
+            //top medium light blue swirl
+            fill(139, 213, 240, 150);
+            beginShape();
+            //first anchor point
+            vertex(this.x + 75, this.y + 2);
+            //add bezier vertices
+            bezierVertex(this.x + 75, this.y + 2, this.x + 20, this.y + 50, this.x + 75, this.y + 100);
+            bezierVertex(this.x + 75, this.y + 100, this.x + 55, this.y + 20, this.x + 148, this.y + 30);
+            vertex(this.x + 148, this.y + 10);
+            bezierVertex(this.x + 148, this.y + 10, this.x + 148, this.y, this.x + 138, this.y + 2);
+            //stop drawing shape
+            endShape();
+
+            //bottom medium light blue swirl
+            beginShape();
+            vertex(this.x + 75, this.y + 198);
+            bezierVertex(this.x + 75, this.y + 198, this.x + 140, this.y + 150, this.x + 75, this.y + 100);
+            bezierVertex(this.x + 75, this.y + 100, this.x + 100, this.y + 190, this.x + 2, this.y + 170);
+            vertex(this.x + 2, this.y + 190);
+            bezierVertex(this.x + 2, this.y + 190, this.x + 2, this.y + 198, this.x + 12, this.y + 198);
+            endShape();
+
+            //top left light blue swirl
+            beginShape();
+            vertex(this.x + 45, this.y + 15);
+            bezierVertex(this.x + 45, this.y + 15, this.x, this.y + 90, this.x + 75, this.y + 100);
+            bezierVertex(this.x + 75, this.y + 100, this.x + 30, this.y + 60, this.x + 45, this.y + 15);
+            endShape();
+
+            //bottom right light blue swirl
+            beginShape();
+            vertex(this.x + 105, this.y + 185);
+            bezierVertex(this.x + 105, this.y + 185, this.x + 160, this.y + 120, this.x + 75, this.y + 100);
+            bezierVertex(this.x + 75, this.y + 100, this.x + 125, this.y + 130, this.x + 105, this.y + 185);
+            endShape();
+
+            fill(211, 243, 255, 150);
+            //top middle light swirl
+            beginShape();
+            vertex(this.x + 75, this.y + 100);
+            bezierVertex(this.x + 75, this.y + 100, this.x + 15, this.y + 20, this.x + 125, this.y + 10);
+            bezierVertex(this.x + 125, this.y + 10, this.x + 50, this.y + 20, this.x + 75, this.y + 100);
+            endShape();
+
+            //bottom middle light swirl
+            beginShape();
+            vertex(this.x + 75, this.y + 100);
+            bezierVertex(this.x + 75, this.y + 100, this.x + 135, this.y + 180, this.x + 25, this.y + 190);
+            bezierVertex(this.x + 25, this.y + 190, this.x + 100, this.y + 180, this.x + 75, this.y + 100);
+            endShape();
+
+            //top left light swirl
+            beginShape();
+            vertex(this.x + 50, this.y + 2);
+            bezierVertex(this.x + 50, this.y + 2, this.x + 25, this.y + 15, this.x + 20, this.y + 55);
+            bezierVertex(this.x + 20, this.y + 55, this.x + 15, this.y + 18, this.x + 32, this.y + 2);
+            endShape();
+
+            //bottom right light swirl
+            beginShape();
+            vertex(this.x + 100, this.y + 198);
+            bezierVertex(this.x + 100, this.y + 198, this.x + 125, this.y + 185, this.x + 130, this.y + 150);
+            bezierVertex(this.x + 130, this.y + 150, this.x + 138, this.y + 175, this.x + 118, this.y + 198);
+            endShape();
+
+            //bottom left swirl (more transparent)
+            fill(211, 243, 255, 100);
+            beginShape();
+            vertex(this.x + 2, this.y + 150);
+            bezierVertex(this.x + 2, this.y + 150, this.x + 40, this.y + 175, this.x + 60, this.y + 150);
+            bezierVertex(this.x + 60, this.y + 150, this.x + 50, this.y + 180, this.x + 2, this.y + 180);
+            endShape();
+
+            //top right transparent swirl
+            beginShape();
+            vertex(this.x + 148, this.y + 50);
+            bezierVertex(this.x + 148, this.y + 50, this.x + 120, this.y + 35, this.x + 95, this.y + 50);
+            bezierVertex(this.x + 95, this.y + 50, this.x + 110, this.y + 20, this.x + 148, this.y + 20);
+            endShape();
+
             //start of creating a pokeball
             fill('red');
             strokeWeight(2);
+            stroke(25, 38, 70);
             circle(this.x + this.width/2, this.y + this.height/2, 90);
             fill('white');
             arc(this.x + this.width/2, this.y + this.height/2, 90, 90, 0, PI, PIE);
