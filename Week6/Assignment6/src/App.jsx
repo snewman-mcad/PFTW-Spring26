@@ -1,3 +1,5 @@
+import "./App.css";
+
 function App() {
 
   const llamaFacts = [
@@ -8,15 +10,17 @@ function App() {
     "Llamas weigh around 280 to 450 pounds and can carry about a quarter of their body weight."
   ]
 
+  const packAnimal = true;
+
   return (
     <div>
-      <h1>Llama Facts!</h1>
+      <h1>🦙Llama Facts!🦙</h1>
       <ul>
         <li>{llamaFacts[0]}</li>
         <li>{llamaFacts[1]}</li>
         <li>{llamaFacts[2]}</li>
-        <li>{llamaFacts[3]}</li>
-        <li>{llamaFacts[4]}</li>
+        {/*ternary for whether a llama is a pack animal*/}
+        <li>{packAnimal ? llamaFacts[4] : llamaFacts[3]}</li>
       </ul>
     </div>
   )
