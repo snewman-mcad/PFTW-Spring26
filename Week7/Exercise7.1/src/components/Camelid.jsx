@@ -1,7 +1,7 @@
 function Camelid({name, trivia, img}) {
     
     return(
-        <div>
+        <div className="card">
             <h2>{name}</h2>
             <img src={img} />
             <p>{trivia}</p>

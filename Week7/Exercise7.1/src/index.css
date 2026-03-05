@@ -4,6 +4,7 @@ body {
   margin: 0 auto;
   padding: 1rem;
   background-color: bisque;
+  font-family: sans-serif;
 }
 
 h1 {
@@ -14,4 +15,8 @@ img {
   border-radius: 10px;
   width: 300px;
   height: 300px;
+}
+
+.card {
+  border-bottom: solid 2px darkgreen;
 }
