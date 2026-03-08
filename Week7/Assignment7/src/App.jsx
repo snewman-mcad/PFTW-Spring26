@@ -1,56 +1,53 @@
-import Alexandrite from './assets/june-alexandrite.jpg';
-import Naughty from './assets/naughty-list.jpg';
-import Dragon from './assets/dragon-lore.jpg';
-import Belladonna from './assets/belladonna-kiss.jpg';
-import Opal from './assets/october-opal.jpg';
-import Blackcurrant from './assets/blackcurrant-beauty.jpg';
 import './App.css';
+import Skein from './components/Skein.jsx';
 
 function App() {
-  const skeins = [
+
+  const allSkeins = [
     {
       name: "June Alexandrite",
       weight: "Fingering (1)",
       yardage: 550,
       fiber: "50% Superwash Merino Wool and 50% Mulberry Silk",
-      image: Alexandrite
+      image: './june-alexandrite.jpg'
     },{
       name: "Naughty List",
       weight: "Worsted (4)",
       yardage: 220,
       fiber: "50% Superwash Merino Wool and 50% Mulberry Silk",
-      image: Naughty
+      image: './naughty-list.jpg'
     },{
       name: "Dragon Lore",
       weight: "Fingering (1)",
       yardage: 500,
       fiber: "50% Camel Silk and 50% Mulberry Silk",
-      image: Dragon
+      image: './dragon-lore.jpg'
     },{
       name: "Belladonna Kiss",
       weight: "Fingering (1)",
       yardage: 400,
       fiber: "100% Superwash Merino Wool",
-      image: Belladonna
+      image: './belladonna-kiss.jpg'
     },{
       name: "October Opal",
       weight: "DK (3)",
       yardage: 250,
       fiber: "70% Superwash Merino Wool, 20% Nylon, and 10% Silk",
-      image: Opal
+      image: './october-opal.jpg'
     },{
       name: "Blackcurrant Beauty",
       weight: "Fingering (1)",
       yardage: 400,
       fiber: "100% Superwash Merino Wool",
-      image: Blackcurrant
+      image: './blackcurrant-beauty.jpg'
     }
   ];
-  
+
   return (
     <div>
       <h1>Yarn Wish List</h1>
-      <h2>{skeins[0].name}</h2>
+      {/*Calling the component Skein and passing it the props of allSkeins */}
+      <Skein skeins={allSkeins}/>
     </div>
   )
 }
