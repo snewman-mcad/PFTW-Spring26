@@ -19,7 +19,15 @@ h1, h2 {
   color: #ff71fd;
 }
 
+h2 {
+  font-size: 2rem;
+}
+
 img {
   max-width: 350px;
 }
 
+.expensive {
+    color: #c2e812;
+    font-style: italic;
+}
