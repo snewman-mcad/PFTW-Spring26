@@ -4,3 +4,22 @@
   padding: 2rem;
   text-align: left;
 }
+body {
+  background-color: #002231;
+  color: white;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  text-align: center;
+}
+
+h1, h2 {
+  color: #ff71fd;
+}
+
+img {
+  max-width: 350px;
+}
+

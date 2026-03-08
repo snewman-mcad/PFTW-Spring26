@@ -1,0 +1,17 @@
+.grid {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 350px auto;
+    gap: 2rem;
+}
+
+.grid h2, p {
+    padding: 0 1.5rem;
+}
+.odd {
+    background-color: #570055;
+}
+
+.odd-inner {
+    background-color: #003045;
+}
