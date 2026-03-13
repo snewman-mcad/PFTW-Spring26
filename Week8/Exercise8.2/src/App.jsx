@@ -10,33 +10,37 @@ function App() {
     "Ferret",
     "Fish"
   ]
-  const [headline, setHeadline] = useState("List of Animals")
+
+  const [headline, setHeadline] = useState("one of these Animals");
   const [animalList, setAnimalList] = useState(animalTypesArray);
 
   function deleteAnimal(animalType) {
     const updatedAnimalArray = animalList.filter((animal) => {
+      /*returns everything except for the animal type that was clicked on*/
       return animal !== animalType;
     });
-    setAnimalList (updatedAnimalArray);
+    setAnimalList(updatedAnimalArray);
   }
 
   function focusAnimal(animalType) {
+    /*updated the headline with the new animal type*/
     setHeadline(animalType);
   }
 
   return (
     <>
       <h1>Let's focus on {headline}</h1>
-      {animalList.map((loopAnimals) => {
+      {animalList.map((loopAnimals, index) => {
         return(
           <Animals 
-            key={loopAnimals} 
+            key={index} 
             animalType={loopAnimals} 
             deleteFn={deleteAnimal}
             focusFn={focusAnimal}/>
         )
       })}
-      <button style={{margin: "0 auto"}} onClick={() => {
+      <button style={{margin: "0 auto", backgroundColor: "darkred"}} onClick={() => {
+        /*resets the list of animals to the original array*/
         setAnimalList(animalTypesArray);
       }}>Reset</button>
     </>
