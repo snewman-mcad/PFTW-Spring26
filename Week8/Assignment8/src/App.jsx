@@ -63,6 +63,14 @@ function App() {
   ];
   const [yarns, setYarns] = useState(allSkeins);
 
+  function deleteSkein() {
+    console.log("delete me");
+  }
+
+  function duplicateSkein() {
+    console.log("duplicate me");
+  }
+
   return (
     <div className='page'>
       <h1>Yarn Wish List</h1>
@@ -73,6 +81,8 @@ function App() {
             <Skein 
             key={yarn.id}
             odd={index % 2 === 0}
+            deleteFn={deleteSkein}
+            duplicateFn={duplicateSkein}
             /*Using spread operator to create all of the props */
             {...yarn}/>
           )

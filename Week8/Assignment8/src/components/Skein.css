@@ -23,3 +23,18 @@
 .even-inner {
     background-color: #81007f6f;
 }
+.action {
+    display: flex;
+    justify-content: end;
+}
+.action img {
+    height: 30px;
+    width: fit-content;
+    margin: 1rem;
+    padding: 0.5rem;
+    border-radius: 7px;
+    background-color: #ff71fd;;
+}
+.action img:hover {
+    background-color: #2ffff5;
+}

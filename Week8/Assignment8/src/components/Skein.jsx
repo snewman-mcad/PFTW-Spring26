@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
+import copy from '../assets/copy.png';
+import trash from '../assets/trash.png';
 import "./Skein.css";
 
-export default function Skein({name, image, alt, weight, yardage, fiber, price, id, odd}) {
+export default function Skein({name, image, alt, weight, yardage, fiber, price, id, odd, deleteFn, duplicateFn}) {
     return(  
         <div className={odd ? "odd" : "even"}>
             <div className={"grid"} key={id}>
@@ -12,6 +14,10 @@ export default function Skein({name, image, alt, weight, yardage, fiber, price, 
                     <p>{yardage + " yards per skein"}</p>
                     <p>{"Fiber content: " + fiber}</p>
                     <p className={price > 35 ? "expensive" : ""}>{"$" + price + " per skein"}</p>
+                    <div className='action'>
+                        <a href="#" ><img src={copy} alt="copy icon" /></a>
+                        <a href="#" ><img src={trash} alt="trash icon" /></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -28,5 +34,7 @@ Skein.PropTypes = {
     fiber: PropTypes.string,
     price: PropTypes.number,
     id: PropTypes.number,
-    odd: PropTypes.number
+    odd: PropTypes.number,
+    deleteFn: PropTypes.func,
+    dulicateFn: PropTypes.func
 }
