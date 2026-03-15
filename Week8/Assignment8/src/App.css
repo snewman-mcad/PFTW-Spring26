@@ -1,7 +1,6 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: left;
 }
 body {
@@ -14,6 +13,11 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  margin: 1rem auto;
+  align-items: center;
+  max-width: fit-content;
 }
 
 h1, h2 {
@@ -34,6 +38,12 @@ img {
     color: #c2e812;
     font-style: italic;
 }
+.dark-background {
+  background-color: #001924c8;
+  padding: 0.5rem 0.7rem;
+  border-radius: 15px;
+  margin: 1rem auto;
+}
 
 /*reset button styles*/
 .reset {
@@ -52,10 +62,10 @@ img {
   box-shadow: 0px 0px 3px 5px #ff71fd;
 }
 .reset-block {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;
 }
 .reset-block p {
   margin: 0;

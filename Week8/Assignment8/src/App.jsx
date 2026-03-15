@@ -71,7 +71,6 @@ function App() {
   const [yarns, setYarns] = useState(allSkeins);
 
   function deleteSkein(id) {
-    console.log("delete me", id);
     const updatedArray = yarns.filter((yarn) => {
       /*returns everything except for the yarn that was clicked on (and had the matching id)*/
       return yarn.id !== id;
@@ -80,20 +79,19 @@ function App() {
   }
 
   function duplicateSkein(id) {
-    console.log("duplicate me", id);
     const matchingSkein = yarns.find((yarn) => {
       /*returns the item/yarn with the matching id */
       return yarn.id === id
     });
-    {/*variable updatedSkeins is for the duplicated item/object that is the matchingSkein; creating a unique id with the nanoid */}
+    /*variable updatedSkeins is for the duplicated item/object that is the matchingSkein; creating a unique id with the nanoid */
     const updatedSkeins = {...matchingSkein, id: nanoid()};
-    {/*adding the updatedSkeins object to the array of yarns using state*/}
+    /*adding the updatedSkeins object to the array of yarns using state*/
     setYarns([...yarns, updatedSkeins]);
   }
 
   return (
     <div className='page'>
-      <h1>Yarn Wish List</h1>
+      <h1 className='dark-background'>Yarn Wish List</h1>
       <div className='collection'>
         {yarns.map((yarn, index) => {
           return(
@@ -101,20 +99,23 @@ function App() {
             <Skein 
             key={yarn.id}
             odd={index % 2 === 0}
+            /*passing functions as props */
             deleteFn={deleteSkein}
             duplicateFn={duplicateSkein}
-            /*Using spread operator to create all of the props */
+            /*Using spread operator to create all of the props from the useState */
             {...yarn}/>
           )
         })}
       </div>
-      <p style={{fontSize: '1.2rem'}}>Please note: If a yarn/skein is expensive, <span className={"expensive"}>above $35</span>, the price will be marked <span className={"expensive"}>green and italic</span></p>
-      <div className="reset-block">
-        <p>To reset <br />the wish list:</p>
-        <button className="reset" onClick={() => {
-          /*resets the list of yarns to the original array allSkeins*/
-          setYarns(allSkeins);
-        }}>Reset</button>
+      <div className='dark-background'>
+        <p className='note'>Please note: If a yarn/skein is expensive, <span className={"expensive"}>above $35</span>, the price will be marked <span className={"expensive"}>green and italic</span>.</p>
+        <div className="reset-block">
+          <p>To reset <br />the wish list:</p>
+          <button className="reset" onClick={() => {
+            /*resets the list of yarns to the original array allSkeins*/
+            setYarns(allSkeins);
+          }}>Reset</button>
+        </div>
       </div>
     </div>
   )

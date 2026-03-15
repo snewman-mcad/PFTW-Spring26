@@ -25,3 +25,8 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
+.note {
+  padding: 0;
+  margin: 0 0 0.4rem 0;
+  font-size: 1.2rem;
+}
