@@ -100,6 +100,10 @@ function App() {
         })}
       </div>
       <p style={{fontSize: '1.2rem'}}>Please note: If a yarn/skein is expensive, <span className={"expensive"}>above $35</span>, the price will be marked <span className={"expensive"}>green and italic</span></p>
+      <button className="reset" onClick={() => {
+        /*resets the list of yarns to the original array allSkeins*/
+        setYarns(allSkeins);
+      }}>Reset</button>
     </div>
   )
 }

@@ -26,8 +26,27 @@ h2 {
 img {
   max-width: 350px;
 }
-
+.page {
+  margin: 0 auto;
+}
 .expensive {
     color: #c2e812;
     font-style: italic;
+}
+.reset {
+  font-size: 1.25rem;
+  background-color: darkred;
+  color: white;
+  border: 2px solid rgb(209, 0, 0);
+  padding: 0.5rem 0.75rem;
+  border-radius: 7px;
+  cursor: pointer;
+  box-shadow: 0px 0px 3px 5px #00131b;
+  display: block;
+  margin: 0 0 0 auto;
+}
+.reset:hover {
+  background-color: rgb(88, 0, 71);
+  border: 2px solid darkred;
+  box-shadow: 0px 0px 3px 5px #ff71fd;
 }
