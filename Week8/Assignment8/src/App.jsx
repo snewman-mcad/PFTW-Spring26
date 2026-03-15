@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import './App.css';
 import Skein from './components/Skein.jsx';
+import {nanoid} from 'nanoid';
 
 function App() {
   
@@ -63,12 +64,22 @@ function App() {
   ];
   const [yarns, setYarns] = useState(allSkeins);
 
-  function deleteSkein() {
-    console.log("delete me");
+  function deleteSkein(id) {
+    console.log("delete me", id);
+    const updatedArray = yarns.filter((yarn) => {
+      /*returns everything except for the yarn that was clicked on (and had the matching id)*/
+      return yarn.id !== id;
+    });
+    setYarns(updatedArray);
   }
 
-  function duplicateSkein() {
-    console.log("duplicate me");
+  function duplicateSkein(id) {
+    console.log("duplicate me", id);
+    const matchingSkein = yarns.find((yarn) => {
+      return yarn.id === id
+    });
+    const updatedSkeins = {...matchingSkein, id: nanoid()};
+    setYarns([...yarns, updatedSkeins]);
   }
 
   return (

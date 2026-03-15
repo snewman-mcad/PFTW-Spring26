@@ -15,8 +15,15 @@ export default function Skein({name, image, alt, weight, yardage, fiber, price, 
                     <p>{"Fiber content: " + fiber}</p>
                     <p className={price > 35 ? "expensive" : ""}>{"$" + price + " per skein"}</p>
                     <div className='action'>
-                        <a href="#" ><img src={copy} alt="copy icon" /></a>
-                        <a href="#" ><img src={trash} alt="trash icon" /></a>
+                        <a href="#" onClick={(evt) => {
+                            /*prevents the reloading of the page*/
+                            evt.preventDefault();
+                            duplicateFn(id)
+                        }}><img src={copy} alt="copy icon" /></a>
+                        <a href="#" onClick={(evt) => {
+                            evt.preventDefault();
+                            deleteFn(id)
+                        }}><img src={trash} alt="trash icon" /></a>
                     </div>
                 </div>
             </div>
