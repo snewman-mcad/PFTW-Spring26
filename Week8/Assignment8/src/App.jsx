@@ -9,6 +9,7 @@ function App() {
     {
       name: "June Alexandrite",
       weight: "Fingering (1)",
+      weightNumber: "one",
       yardage: 550,
       fiber: "50% Superwash Merino Wool and 50% Mulberry Silk",
       image: './june-alexandrite.jpg',
@@ -18,6 +19,7 @@ function App() {
     },{
       name: "Naughty List",
       weight: "Worsted (4)",
+      weightNumber: "four",
       yardage: 220,
       fiber: "50% Superwash Merino Wool and 50% Mulberry Silk",
       image: './naughty-list.jpg',
@@ -27,6 +29,7 @@ function App() {
     },{
       name: "Dragon Lore",
       weight: "Fingering (1)",
+      weightNumber: "one",
       yardage: 500,
       fiber: "50% Camel Silk and 50% Mulberry Silk",
       image: './dragon-lore.jpg',
@@ -36,6 +39,7 @@ function App() {
     },{
       name: "Belladonna Kiss",
       weight: "Fingering (1)",
+      weightNumber: "one",
       yardage: 400,
       fiber: "100% Superwash Merino Wool",
       image: './belladonna-kiss.jpg',
@@ -45,6 +49,7 @@ function App() {
     },{
       name: "October Opal",
       weight: "DK (3)",
+      weightNumber: "three",
       yardage: 250,
       fiber: "70% Superwash Merino Wool, 20% Nylon, and 10% Silk",
       image: './october-opal.jpg',
@@ -54,6 +59,7 @@ function App() {
     },{
       name: "Blackcurrant Beauty",
       weight: "Fingering (1)",
+      weightNumber: "one",
       yardage: 400,
       fiber: "100% Superwash Merino Wool",
       image: './blackcurrant-beauty.jpg',

@@ -1,19 +1,22 @@
 import PropTypes from 'prop-types';
+import clsx from 'clsx';
 import copy from '../assets/copy.png';
 import trash from '../assets/trash.png';
 import "./Skein.css";
 
-export default function Skein({name, image, alt, weight, yardage, fiber, price, id, odd, deleteFn, duplicateFn}) {
+export default function Skein({name, image, alt, weight, weightNumber, yardage, fiber, price, id, odd, deleteFn, duplicateFn}) {
     return(  
         <div className={odd ? "odd" : "even"}>
             <div className={"grid"} key={id}>
                 <img src={image} alt={alt} />
                 <div className={odd ? "odd-inner" : "even-inner"}>
                     <h2>{name}</h2>
-                    <p>{"Yarn weight: " + weight}</p>
+                    <h3>{"Yarn weight: " + weight}</h3>
+                    {/*using clsx to dynamically use weightNumber to determine the class name and have the class of yarn-size */}
+                    <div className={clsx(["yarn-size", weightNumber])}></div>
                     <p>{yardage + " yards per skein"}</p>
                     <p>{"Fiber content: " + fiber}</p>
-                    <p className={price > 35 ? "expensive" : ""}>{"$" + price + " per skein"}</p>
+                    <p className={price > 35 ? "expensive + cost" : "cost"}>{"$" + price + " per skein"}</p>
                     <div className='action'>
                         <a href="#" onClick={(evt) => {
                             /*prevents the reloading of the page*/
@@ -37,6 +40,7 @@ Skein.PropTypes = {
     image: PropTypes.string,
     alt: PropTypes.string,
     weight: PropTypes.string,
+    weightNumber: PropTypes.string,
     yardage: PropTypes.number,
     fiber: PropTypes.string,
     price: PropTypes.number,

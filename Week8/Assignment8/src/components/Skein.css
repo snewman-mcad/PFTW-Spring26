@@ -5,8 +5,11 @@
     gap: 2rem;
 }
 
-.grid h2, p {
+.grid h2, h3, p {
     padding: 0 1.5rem;
+}
+h3 {
+    color: #2ffff5;
 }
 .odd {
     background-color: #570055;
@@ -23,6 +26,39 @@
 .even-inner {
     background-color: #81007f6f;
 }
+
+.cost {
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 0.1rem;
+}
+
+/*creating a bar of color to visually indicate the yarn size */
+.yarn-size {
+    background-color: #2ffff5;
+}
+.one {
+    height: 2px;
+    margin: 0 1.5rem;
+}
+.two {
+    height: 4px;
+    margin: 0 1.5rem;
+}
+.three {
+    height: 6px;
+    margin: 0 1.5rem;
+}
+.four {
+    height: 8px;
+    margin: 0 1.5rem;
+}
+.five {
+    height: 10px;
+    margin: 0 1.5rem;
+}
+
+/*button styles*/
 .action {
     display: flex;
     justify-content: end;
