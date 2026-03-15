@@ -82,9 +82,12 @@ function App() {
   function duplicateSkein(id) {
     console.log("duplicate me", id);
     const matchingSkein = yarns.find((yarn) => {
+      /*returns the item/yarn with the matching id */
       return yarn.id === id
     });
+    {/*variable updatedSkeins is for the duplicated item/object that is the matchingSkein; creating a unique id with the nanoid */}
     const updatedSkeins = {...matchingSkein, id: nanoid()};
+    {/*adding the updatedSkeins object to the array of yarns using state*/}
     setYarns([...yarns, updatedSkeins]);
   }
 
@@ -106,10 +109,13 @@ function App() {
         })}
       </div>
       <p style={{fontSize: '1.2rem'}}>Please note: If a yarn/skein is expensive, <span className={"expensive"}>above $35</span>, the price will be marked <span className={"expensive"}>green and italic</span></p>
-      <button className="reset" onClick={() => {
-        /*resets the list of yarns to the original array allSkeins*/
-        setYarns(allSkeins);
-      }}>Reset</button>
+      <div className="reset-block">
+        <p>To reset <br />the wish list:</p>
+        <button className="reset" onClick={() => {
+          /*resets the list of yarns to the original array allSkeins*/
+          setYarns(allSkeins);
+        }}>Reset</button>
+      </div>
     </div>
   )
 }
