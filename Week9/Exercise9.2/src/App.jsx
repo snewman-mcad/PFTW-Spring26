@@ -26,7 +26,7 @@ function App() {
         <fieldset>
           <legend>Personal Information</legend>
           <div className="nameArea">
-            <div>
+            <div className="spacing">
               <label htmlFor="firstName">First Name: </label>
               {/*using spread operator register to get props, also requiring first and last name to submit the form*/}
               <input type="text" id="firstName" {...register("firstName", {required: true, minLength: 2})} placeholder="First Name" />
@@ -34,7 +34,7 @@ function App() {
               {errors.firstName && (<p className="error">You need to input your first name to continue.</p>)}
             </div>
 
-            <div>
+            <div className="spacing">
               <label htmlFor="lastName">Last Name: </label>
               <input type="text" id="lastName" {...register("lastName", {required: true, minLength: 2})} placeholder="Last Name" />
               {errors.lastName && (<p className="error">You need to input your last name to continue.</p>)}
@@ -42,13 +42,16 @@ function App() {
           </div>
 
           <div className="addressArea">
-            <div>
+            <div className="spacing">
               <label htmlFor="streetAddress">Street Address: </label>
-              <input type="text" id="streetAddress" {...register("streetAddress")} placeholder="Street Address" />
+              {/*adding a minLength of 8 to street address (the shortest address example I could think of was
+              1 2nd St. which is 8 characters without the ".")*/}
+              <input type="text" id="streetAddress" {...register("streetAddress", {minLength: 8})} placeholder="Street Address" />
+              {errors.streetAddress && (<p className="error">Your address should be longer than 8 characters.</p>)}
             </div>
 
             <div>
-              <div>
+              <div className="spacing">
                 <label htmlFor="state">State: </label>
                 {/*creating dropdown selector for states*/}
                 <select id="state" {...register("state")}>
@@ -63,9 +66,11 @@ function App() {
                 </select>
               </div>
 
-              <div>
+              <div className="spacing">
                 <label htmlFor="country">Country: </label>
-                <input type="text" id="country" {...register("country")} placeholder="Country" />
+                {/*minimum characters set to 4*/}
+                <input type="text" id="country" {...register("country", {minLength: 4})} placeholder="Country" />
+                {errors.country && (<p className="error">Please do not abbreviate the name of your country.</p>)}
               </div>
             </div>
           </div>
@@ -76,32 +81,42 @@ function App() {
           <div className='checkboxArea'>
             <h2>Favorite Color</h2>
             {/*creating checkboxes for the favorite color choices*/}
-            <div>
-              <label htmlFor="alpacaColor-white">White: </label>
-              <input type="checkbox" id="alpacaColor-white" value="white" {...register("favoriteColor")}></input>
-            </div>
-            <div>
-              <label htmlFor="alpacaColor-brown">Brown: </label>
-              <input type="checkbox" id="alpacaColor-brown" value="brown" {...register("favoriteColor")}></input>
-            </div>
-            <div>
-              <label htmlFor="alpacaColor-black">Black: </label>
-              <input type="checkbox" id="alpacaColor-black" value="black" {...register("favoriteColor")}></input>
+            <div className="selection">
+              <div>
+                <label htmlFor="alpacaColor-white">White: </label>
+                <input type="checkbox" id="alpacaColor-white" value="white" {...register("favoriteColor")}></input>
+              </div>
+              <div>
+                <label htmlFor="alpacaColor-brown">Brown: </label>
+                <input type="checkbox" id="alpacaColor-brown" value="brown" {...register("favoriteColor")}></input>
+              </div>
+              <div>
+                <label htmlFor="alpacaColor-black">Black: </label>
+                <input type="checkbox" id="alpacaColor-black" value="black" {...register("favoriteColor")}></input>
+              </div>
             </div>
           </div>
 
           <div>
             <h2>Gender Preference</h2>
             {/*adding in some radio buttons to play with (in addition to the checkboxes) */}
-            <label htmlFor="gender-female">Female: </label>
-            <input type="radio" id="gender-female" value="female" {...register("favoriteGender")}></input>
-            <label htmlFor="gender-male">Male: </label>
-            <input type="radio" id="gender-male" value="male" {...register("favoriteGender")}></input>
+            <div className="selection">
+              <div>
+                <label htmlFor="gender-female">Female: </label>
+                <input type="radio" id="gender-female" value="female" {...register("favoriteGender")}></input>
+              </div>
+              <div>
+                <label htmlFor="gender-male">Male: </label>
+                <input type="radio" id="gender-male" value="male" {...register("favoriteGender")}></input>
+              </div>
+            </div>
           </div>
 
           <div>
             <label htmlFor="moreInfo">Tell us more about your ideal alpaca:</label>
-            <textarea id="moreInfo" {...register("moreInfo")}></textarea>
+            {/*adding validation on max number of characters*/}
+            <textarea id="moreInfo" {...register("moreInfo", {maxLength: 150})} className="spacing"></textarea>
+            {errors.moreInfo && (<p className="error">You can type a max of 150 characters.</p>)}
           </div>
         </fieldset>
         <button type="submit">Join the Club!</button>
@@ -110,13 +125,15 @@ function App() {
       <div>
         {/*conditional for if new data was submitted, it will display the (html in here) */}
         {newData && (
-          <div>
+          <div className="submit-text">
             <h2>Welcome to the club, {newData.firstName} {newData.lastName}!</h2>
             <h3>Here are your submitted personal details:</h3>
             <p>Street address: {newData.streetAddress}</p>
             <p>State: {newData.state} | Country: {newData.country}</p>
             <h3>Here is the information on your ideal alpaca:</h3>
-            <p>Favorite color(s): {newData.favoriteColor.join(", ")}</p>
+            {/*added conditional to check if their are favorite color(s) using the optional chaining operator ?.
+            to get rid of an error from trying to join and empty array*/}
+            <p>Favorite color(s): {newData.favoriteColor.join?.(", ")}</p>
             <p>Gender: {newData.favoriteGender}</p>
             <p>Other important information about your ideal alpaca:</p>
             <p>{newData.moreInfo}</p>
