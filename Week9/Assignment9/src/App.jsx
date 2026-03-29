@@ -10,7 +10,7 @@ function App() {
   const allSkeins = [
     {
       name: "June Alexandrite",
-      weight: "Fingering (1)",
+      weight: "Fingering",
       weightNumber: "one",
       yardage: 550,
       fiber: "50% Superwash Merino Wool and 50% Mulberry Silk",
@@ -20,7 +20,7 @@ function App() {
       id: 1
     },{
       name: "Naughty List",
-      weight: "Worsted (4)",
+      weight: "Worsted",
       weightNumber: "four",
       yardage: 220,
       fiber: "50% Superwash Merino Wool and 50% Mulberry Silk",
@@ -30,7 +30,7 @@ function App() {
       id: 2
     },{
       name: "Dragon Lore",
-      weight: "Fingering (1)",
+      weight: "Fingering",
       weightNumber: "one",
       yardage: 500,
       fiber: "50% Camel Silk and 50% Mulberry Silk",
@@ -40,7 +40,7 @@ function App() {
       id: 3
     },{
       name: "Belladonna Kiss",
-      weight: "Fingering (1)",
+      weight: "Fingering",
       weightNumber: "one",
       yardage: 400,
       fiber: "100% Superwash Merino Wool",
@@ -50,7 +50,7 @@ function App() {
       id: 4
     },{
       name: "October Opal",
-      weight: "DK (3)",
+      weight: "DK",
       weightNumber: "three",
       yardage: 250,
       fiber: "70% Superwash Merino Wool, 20% Nylon, and 10% Silk",
@@ -60,7 +60,7 @@ function App() {
       id: 5
     },{
       name: "Blackcurrant Beauty",
-      weight: "Fingering (1)",
+      weight: "Fingering",
       weightNumber: "one",
       yardage: 400,
       fiber: "100% Superwash Merino Wool",
@@ -150,21 +150,48 @@ function App() {
           {/*This is the set of radio buttons for yarn weight*/}
           <div className="form-group">
             <div>
+              <p>What is the category of the yarn?</p>
+              <label htmlFor="weight-fingering">Fingering: </label>
+              <input type="radio" id="weight-fingering" value="Fingering" {...register("weight")}></input>
+
+              <label htmlFor="weight-lace">Lace: </label>
+              <input type="radio" id="weight-lace" value="Lace" {...register("weight")}></input>
+
+              <label htmlFor="weight-sport">Sport: </label>
+              <input type="radio" id="weight-sport" value="Sport" {...register("weight")}></input>
+
+              <label htmlFor="weight-sock">Sock: </label>
+              <input type="radio" id="weight-sock" value="Sock" {...register("weight")}></input>
+
+              <label htmlFor="weight-dk">DK: </label>
+              <input type="radio" id="weight-dk" value="DK" {...register("weight")}></input>
+
+              <label htmlFor="weight-worsted">Worsted: </label>
+              <input type="radio" id="weight-worsted" value="Worsted" {...register("weight")}></input>
+
+              <label htmlFor="weight-bulky">Bulky: </label>
+              <input type="radio" id="weight-bulky" value="Bulky" {...register("weight")}></input>
+            </div>
+          </div>
+
+          {/*This is the set of radio buttons for yarn weight*/}
+          <div className="form-group">
+            <div>
               <p>What is the weight of the yarn?</p>
-              <label htmlFor="weight-fingering">Fingering (1): </label>
-              <input type="radio" id="weight-fingering" value="Fingering (1)" {...register("weight")}></input>
+              <label htmlFor="weightNumber-one">One: </label>
+              <input type="radio" id="weightNumber-one" value="one" {...register("weightNumber")}></input>
 
-              <label htmlFor="weight-sport">Sport (2): </label>
-              <input type="radio" id="weight-sport" value="Sport (2)" {...register("weight")}></input>
+              <label htmlFor="weightNumber-two">Two: </label>
+              <input type="radio" id="weightNumber-two" value="two" {...register("weightNumber")}></input>
 
-              <label htmlFor="weight-dk">DK (3): </label>
-              <input type="radio" id="weight-dk" value="DK (3)" {...register("weight")}></input>
+              <label htmlFor="weightNumber-three">Three: </label>
+              <input type="radio" id="weightNumber-three" value="three" {...register("weightNumber")}></input>
 
-              <label htmlFor="weight-worsted">Worsted (4): </label>
-              <input type="radio" id="weight-worsted" value="Worsted (4)" {...register("weight")}></input>
+              <label htmlFor="weightNumber-four">Four: </label>
+              <input type="radio" id="weightNumber-four" value="four" {...register("weightNumber")}></input>
 
-              <label htmlFor="weight-bulky">Bulky (5): </label>
-              <input type="radio" id="weight-bulky" value="Bulky (5)" {...register("weight")}></input>
+              <label htmlFor="weightNumber-five">Five: </label>
+              <input type="radio" id="weightNumber-five" value="five" {...register("weightNumber")}></input>
             </div>
           </div>
           <button type="submit">Add Yarn</button>
