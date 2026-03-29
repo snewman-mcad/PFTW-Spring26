@@ -5,7 +5,10 @@ import Skein from './components/Skein.jsx';
 import {nanoid} from 'nanoid';
 
 function App() {
-  const {register, handleSubmit, formState: {errors}} = useForm();
+  const {register, handleSubmit, formState: {errors}} = useForm({defaultValues: {
+    //providing default image just in case user doesn't have one
+    image: './surprise.jpg'
+  }});
   
   const allSkeins = [
     {
@@ -197,6 +200,7 @@ function App() {
           {/*creating a field for yardage*/}
           <div className="form-group">
             <label htmlFor="yardage">How many yards per skein?</label>
+            {/*adding validation for max number*/}
             <input type="number" id="yardage" {...register("yardage", {required: true, max: 1500})}></input>
             {errors.yardage && (<p className="error">Your skein can be up to 1500 yards.</p>)}
           </div>
@@ -212,10 +216,11 @@ function App() {
           {/*creating a field for price per skein*/}
           <div className="form-group">
             <label htmlFor="price">What is the price per skein?</label>
+            {/*adding validation for max number*/}
             <input type="number" id="price" {...register("price", {required: true, max: 100})}></input>
             {errors.price && (<p className="error">Enter a price up to $100.</p>)}
           </div>
-          <button type="submit">Add Yarn</button>
+          <button type="submit">Submit Skein</button>
         </form>
       </div>
     </div>
