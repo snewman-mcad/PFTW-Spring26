@@ -55,18 +55,24 @@ textarea {
 
 /*button styles*/
 button {
-  font-size: 1.1rem;
-  background-color: #2ffff5;
-  color: black;
-  border: 2px solid #00c4d6;
-  padding: 0.5rem 0.75rem;
-  border-radius: 7px;
-  cursor: pointer;
-  display: block;
+    font-size: 1.1rem;
+    font-weight: bold;
+    background-color: #2ffff5;
+    color: black;
+    border: 2px solid #00c4d6;
+    padding: 0.5rem 0.75rem;
+    border-radius: 7px;
+    cursor: pointer;
+    display: block;
 }
 button:hover {
-  background-color: #004c6c;
-  border: 2px solid #2fbaff;
-  box-shadow: 0px 0px 3px 5px rgb(0, 217, 228);
-  color: white;
+    background-color: #004c6c;
+    border: 2px solid #2fbaff;
+    box-shadow: 0px 0px 3px 5px rgb(0, 217, 228);
+    color: white;
+    }
+.form-buttons button {
+    display: inline-block;
+    margin-right: 1rem;
+    font-size: 1.1rem;
 }

@@ -120,9 +120,11 @@ export function NewYarnForm(props) {
                     {errors.price && (<p className="error">Enter a price up to $100.</p>)}
                 </div>
             </div>
-            <button type="submit">Submit Skein</button>
-
-            {/*<button className="reset" onClick={() => reset()}>Reset</button> I wanted a button to reset fields without submitting and this does work but the errors show up*/}
+            <div className="form-buttons">
+                <button type="submit">Submit Skein</button>
+                {/*I wanted a button to reset fields without submitting and this does work but the errors show up*/}
+                <button className="reset" onClick={() => reset()}>Reset Form</button>
+            </div>
         </form>
       </div>
     )
