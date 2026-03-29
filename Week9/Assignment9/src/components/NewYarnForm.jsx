@@ -4,14 +4,19 @@ import {useForm}  from "react-hook-form";
 export function NewYarnForm(props) {
     const {addNewYarn} = props;
 
-    const {register, handleSubmit, formState: {errors}} = useForm({defaultValues: {
+    const {register, handleSubmit, formState: {errors}, reset} = useForm({defaultValues: {
         //providing default image just in case user doesn't have one
         image: './surprise.jpg'
     }});
 
+    function submitAndClear(data) {
+        addNewYarn(data);
+        reset();
+    }
+
     return (
         <div>
-        <form onSubmit={handleSubmit(addNewYarn)} className='dark-background'>
+        <form onSubmit={handleSubmit(submitAndClear)} className='dark-background'>
           {/*Form area for yarn name*/}
           <div className="form-group">
             <label htmlFor="yarnName">Name of the yarn: </label>
@@ -97,6 +102,8 @@ export function NewYarnForm(props) {
             {errors.price && (<p className="error">Enter a price up to $100.</p>)}
           </div>
           <button type="submit">Submit Skein</button>
+
+          {/*<button className="reset" onClick={() => reset()}>Reset</button> I wanted a button to reset fields without submitting and this does work but the errors show up*/}
         </form>
       </div>
     )
