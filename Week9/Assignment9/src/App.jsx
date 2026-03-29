@@ -143,11 +143,10 @@ function App() {
           {/*Form area for an image of the yarn*/}
           <div className="form-group">
             <label htmlFor="image">Upload an image</label>
-            <input id="image" {...register("image", {required: true})} />
-            {errors.image && (<p className="error">An image is required</p>)}
+            <input id="image" {...register("image")} />
           </div>
 
-          {/*This is the set of radio buttons for yarn weight*/}
+          {/*This is the set of radio buttons for yarn category*/}
           <div className="form-group">
             <div>
               <p>What is the category of the yarn?</p>
@@ -193,6 +192,28 @@ function App() {
               <label htmlFor="weightNumber-five">Five: </label>
               <input type="radio" id="weightNumber-five" value="five" {...register("weightNumber")}></input>
             </div>
+          </div>
+
+          {/*creating a field for yardage*/}
+          <div className="form-group">
+            <label htmlFor="yardage">How many yards per skein?</label>
+            <input type="number" id="yardage" {...register("yardage", {required: true, max: 1500})}></input>
+            {errors.yardage && (<p className="error">Your skein can be up to 1500 yards.</p>)}
+          </div>
+
+          {/*creating a field for fiber content*/}
+          <div className="form-group">
+            <label htmlFor="fiberContent">What is the fiber content of the yarn?</label>
+            {/*adding validation on max number of characters*/}
+            <textarea id="fiberContent" {...register("fiber", {maxLength: 200})}></textarea>
+            {errors.fiber && (<p className="error">You can type a max of 200 characters.</p>)}
+          </div>
+
+          {/*creating a field for price per skein*/}
+          <div className="form-group">
+            <label htmlFor="price">What is the price per skein?</label>
+            <input type="number" id="price" {...register("price", {required: true, max: 100})}></input>
+            {errors.price && (<p className="error">Enter a price up to $100.</p>)}
           </div>
           <button type="submit">Add Yarn</button>
         </form>
