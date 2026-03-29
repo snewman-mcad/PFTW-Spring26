@@ -5,7 +5,7 @@
     grid-template-columns: 350px auto;
     gap: 2rem;
 }
-.grid h2, h3, p {
+.grid h2, .grid h3, .grid p {
     padding: 0 1.5rem;
 }
 h3 {

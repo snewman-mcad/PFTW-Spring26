@@ -1,0 +1,72 @@
+.error {
+    color: #ff1b8d;
+    font-weight: bold;
+    letter-spacing: 5%;
+}
+.h2-form {
+    font-size: 1.75rem;
+    text-align: center;
+    margin: 0 auto 1rem;
+}
+.dark-background--form {
+    border: solid 1.5rem #00131b;
+    padding: 1rem 2rem;
+}
+.form-group {
+    margin: 0.7rem 0;
+}
+.form-group p {
+    margin-bottom: 0;
+}
+label {
+    margin-right: 0.5rem;
+}
+.blue-emphasis {
+    color: #2ffff5;
+}
+.input--number {
+    max-width: 3rem;
+}
+textarea {
+    display: block;
+    min-width: 15rem;
+}
+.grid-form {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-content: start;
+}
+.row-span {
+    grid-row: span 2;
+}
+
+/*styles specific to the radio buttons, can also be used for checkboxes*/
+.radio-area, .flex {
+    display: flex;
+    justify-content: space-between;
+    max-width: 45rem;
+}
+.radio-area--smaller {
+    max-width: 28rem;
+}
+.radio-area label {
+    margin-right: 0;
+}
+
+/*button styles*/
+button {
+  font-size: 1.1rem;
+  background-color: #2ffff5;
+  color: black;
+  border: 2px solid #00c4d6;
+  padding: 0.5rem 0.75rem;
+  border-radius: 7px;
+  cursor: pointer;
+  display: block;
+}
+button:hover {
+  background-color: #004c6c;
+  border: 2px solid #2fbaff;
+  box-shadow: 0px 0px 3px 5px rgb(0, 217, 228);
+  color: white;
+}

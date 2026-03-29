@@ -120,6 +120,10 @@ function App() {
           )
         })}
       </div>
+
+      {/*passing the addNewYarn function as a prop to the NewYarnForm component*/}
+      <NewYarnForm addNewYarn={addNewYarn}/>
+
       <div className='dark-background'>
         <p className='note'>Please note: If a yarn/skein is expensive, <span className={"expensive"}>above $35</span>, the price will be marked <span className={"expensive"}>green and italic</span>.</p>
         <div className="reset-block">
@@ -130,8 +134,6 @@ function App() {
           }}>Reset</button>
         </div>
       </div>
-      {/*passing the addNewYarn function as a prop to the NewYarnForm component*/}
-      <NewYarnForm addNewYarn={addNewYarn}/>
     </div>
   )
 }
