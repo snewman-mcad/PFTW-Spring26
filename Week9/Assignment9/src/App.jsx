@@ -1,9 +1,11 @@
 import {useState} from 'react';
+import {useForm}  from 'react-hook-form';
 import './App.css';
 import Skein from './components/Skein.jsx';
 import {nanoid} from 'nanoid';
 
 function App() {
+  const {register, handleSubmit, formState: {errors}} = useForm();
   
   const allSkeins = [
     {
@@ -70,6 +72,18 @@ function App() {
   ];
   const [yarns, setYarns] = useState(allSkeins);
 
+  function addNewYarn(data) {
+    //do stuff with data to add more yarn
+    //taking existing yarn skeins and spreading a new deck to it
+    console.log("this is the data", data);
+    //creating a new id that is 6 characters long for the new yarn
+    const newId = nanoid(6);
+    //adds the new id to the set of data
+    const newYarnSet = {...data, id: newId};
+    console.log(newYarnSet);
+    setYarns([...yarns, newYarnSet]);
+  }
+
   function deleteSkein(id) {
     const updatedArray = yarns.filter((yarn) => {
       /*returns everything except for the yarn that was clicked on (and had the matching id)*/
@@ -116,6 +130,45 @@ function App() {
             setYarns(allSkeins);
           }}>Reset</button>
         </div>
+      </div>
+      <div>
+        <form onSubmit={handleSubmit(addNewYarn)} className='dark-background'>
+          {/*Form area for yarn name*/}
+          <div className="form-group">
+            <label htmlFor="yarnName">Name of the yarn: </label>
+            <input id="yarnName" {...register("name", {required: true})} />
+            {errors.name && (<p className="error">Yarn name is required</p>)}
+          </div>
+
+          {/*Form area for an image of the yarn*/}
+          <div className="form-group">
+            <label htmlFor="image">Upload an image</label>
+            <input id="image" {...register("image", {required: true})} />
+            {errors.image && (<p className="error">An image is required</p>)}
+          </div>
+
+          {/*This is the set of radio buttons for yarn weight*/}
+          <div className="form-group">
+            <div>
+              <p>What is the weight of the yarn?</p>
+              <label htmlFor="weight-fingering">Fingering (1): </label>
+              <input type="radio" id="weight-fingering" value="Fingering (1)" {...register("weight")}></input>
+
+              <label htmlFor="weight-sport">Sport (2): </label>
+              <input type="radio" id="weight-sport" value="Sport (2)" {...register("weight")}></input>
+
+              <label htmlFor="weight-dk">DK (3): </label>
+              <input type="radio" id="weight-dk" value="DK (3)" {...register("weight")}></input>
+
+              <label htmlFor="weight-worsted">Worsted (4): </label>
+              <input type="radio" id="weight-worsted" value="Worsted (4)" {...register("weight")}></input>
+
+              <label htmlFor="weight-bulky">Bulky (5): </label>
+              <input type="radio" id="weight-bulky" value="Bulky (5)" {...register("weight")}></input>
+            </div>
+          </div>
+          <button type="submit">Add Yarn</button>
+        </form>
       </div>
     </div>
   )
