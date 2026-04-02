@@ -1,0 +1,14 @@
+#root {
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+p {
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+img {
+  max-width: 30rem;
+  display: block;
+  margin: 1rem auto;
+}
