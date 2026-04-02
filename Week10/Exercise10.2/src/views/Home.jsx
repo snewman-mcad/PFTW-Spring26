@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import musicData from '../assets/music.json';
 
 export function Home () {
@@ -8,25 +8,14 @@ export function Home () {
 
     return (
         <>
-            <h1>Top 50 Songs</h1>
-            <div>
-                {songs.map((song) => {
-                    return (
-                        <div key={song.rank}>
-                            {song.title}
-                        </div>
-                    );
-                })}
-            </div>
-            {/* following along with exercise 10.2 video this didn't work quite right
-                {musicData.map ((song) => {
+        <h1>Top 50 Songs</h1>
+            {songs.map((song) => {
                 return (
-                    <div key={song.slug}>
-                        <img src={song.cover} alt={song.title} />
-                        <p><Link to={`${song.slug}`}>{song.title} by {song.artist}</Link></p>
+                    <div key={song.rank}>
+                        <NavLink to={`/songs/${song.slug}`}>{song.title}</NavLink>
                     </div>
-                )
-            })} */}
+                );
+            })}
         </>
     )
 }
