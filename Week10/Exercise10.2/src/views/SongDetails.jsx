@@ -1,5 +1,6 @@
 import { useParams, NavLink } from 'react-router-dom';
 import musicData from '../assets/music.json';
+import './SongDetails.css';
 
 export function SongDetails () {
     const params = useParams();
@@ -16,8 +17,8 @@ export function SongDetails () {
             {selectedSong !== undefined ? (
             <div>
                 <NavLink to="/">Home</NavLink>
-                <h2>Title: {selectedSong.title}</h2>
-                <h3>Artist: {selectedSong.artist}</h3>
+                <h1>Title: {selectedSong.title}</h1>
+                <h2>Artist: {selectedSong.artist}</h2>
                 <img src={selectedSong.cover} alt={selectedSong.title} />
                 <h2>Current Rank: {selectedSong.rank}</h2>
                 <h3>Other Positions:</h3>

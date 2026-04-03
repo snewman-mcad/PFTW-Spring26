@@ -1,0 +1,13 @@
+.song-spacing {
+    margin: 0.25rem;
+}
+
+.song-spacing a {
+    font-size: large;
+    font-weight: bold;
+    margin: .25rem;
+}
+
+h1 {
+    font-weight: bold;
+}

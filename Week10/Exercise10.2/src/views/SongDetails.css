@@ -1,0 +1,10 @@
+img {
+    max-width: 30rem;
+    margin: 1rem;
+}
+
+a {
+    display: block;
+    font-size: 1.3rem;
+    margin: 2rem;
+}

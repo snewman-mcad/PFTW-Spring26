@@ -9,7 +9,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* colon means it is dynamic and part of the parameters that gets passed */}
+        {/* colon means it is dynamic and it is part of the parameters that gets passed */}
         <Route path="/songs/:slug" element={<SongDetails />} />
       </Routes>
     </>
