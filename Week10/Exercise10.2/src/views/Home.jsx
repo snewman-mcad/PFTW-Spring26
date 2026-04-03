@@ -3,7 +3,7 @@ import musicData from '../assets/music.json';
 import './Home.css';
 
 export function Home () {
-        //destructured because the variable name matches with the property name that is on the data
+        //destructured because the variable name matches with the property name that is in the data object
         const {songs} = musicData;
 
     return (

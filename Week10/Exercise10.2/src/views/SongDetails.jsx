@@ -1,6 +1,7 @@
 import { useParams, NavLink } from 'react-router-dom';
 import musicData from '../assets/music.json';
 import './SongDetails.css';
+import genericMusic from '../assets/musicNote.webp';
 
 export function SongDetails () {
     const params = useParams();
@@ -19,7 +20,8 @@ export function SongDetails () {
                 <NavLink to="/">Home</NavLink>
                 <h1>Title: {selectedSong.title}</h1>
                 <h2>Artist: {selectedSong.artist}</h2>
-                <img src={selectedSong.cover} alt={selectedSong.title} />
+                {/* added ternary for album cover. if the value is undefined/null the image will be of the genericMusic image */}
+                <img src={(selectedSong.cover) ? (selectedSong.cover) : (genericMusic) } alt={selectedSong.title} />
                 <h2>Current Rank: {selectedSong.rank}</h2>
                 <h3>Other Positions:</h3>
                 <p>Peak Position: {selectedSong.position.peakPosition}</p>
