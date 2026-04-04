@@ -1,11 +1,12 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import Skein from '../components/Skein.jsx';
-import {nanoid} from 'nanoid';
+import { nanoid } from 'nanoid';
 import { NewYarnForm } from '../components/NewYarnForm.jsx';
 import yarnData from '../assets/yarnData.json';
 import '../App.css';
 
 export function Home() {
+    //setting variable allSkeins to yarnData from the json file
     const allSkeins = yarnData;
 
     const [yarns, setYarns] = useState(allSkeins);

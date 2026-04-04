@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import copy from '../assets/copy.png';
@@ -10,7 +11,9 @@ export default function Skein({name, image, alt, weight, weightNumber, yardage, 
             <div className={"grid"} key={id}>
                 <img src={image} alt={alt} />
                 <div className={odd ? "odd-inner" : "even-inner"}>
-                    <h2>{name}</h2>
+                    <h2>
+                        <NavLink to={`${id}`}>{name}</NavLink>
+                    </h2>
                     <h3>{"Yarn weight: " + weight}</h3>
                     {/*using clsx to dynamically use weightNumber to determine the class name and have the class of yarn-size */}
                     <div className={clsx(["yarn-size", weightNumber])}></div>
