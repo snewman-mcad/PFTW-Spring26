@@ -1,5 +1,28 @@
+/* Color Variables */
+:root {
+    --magenta: rgba(247, 0, 214, 0.934);
+    --teal: rgb(0, 199, 196);
+    --darkteal: rgb(2, 120, 120);
+    --violet: rgb(139, 24, 162);
+    --purple: rgb(78, 15, 131);
+    --blackberry: rgb(33, 13, 67);
+    --raspberry: rgb(117, 15, 87);
+    --gold: rgb(243, 198, 0);
+    --darklavender: rgb(159, 103, 227);
+    --blue: rgb(53, 117, 255);
+    --pink: rgb(255, 107, 233);
+    --mint: rgb(54, 247, 215);
+    --lime: #c2e812;
+    --brightteal: #2ffff5;
+    --darkberry: #570055;
+    --deepblue: #00131b;
+    --trans-deepblue: #001924c8;
+    --deepteal: #003045;
+    --trans-berry: #81007f6f;
+}
+
 h2 a {
-    color: #ff71fd;
+    color: var(--pink);
     text-decoration: none;
 }
 h2 a:hover {
@@ -18,22 +41,22 @@ h2 a:hover {
     padding: 0 1.5rem;
 }
 h3 {
-    color: #2ffff5;
+    color: var(--brightteal);
 }
 .odd {
-    background-color: #570055;
+    background-color: var(--darkberry);
 }
 
 .odd-inner {
-    background-color: #003045;
+    background-color: var(--deepteal);
 }
 
 .even {
-    background-color: #00131b;
+    background-color: var(--deepblue);
 }
 
 .even-inner {
-    background-color: #81007f6f;
+    background-color: var(--trans-berry);
 }
 
 .cost {
@@ -44,7 +67,7 @@ h3 {
 
 /*creating a bar of color to visually indicate the yarn size */
 .yarn-size {
-    background-color: #2ffff5;
+    background-color: var(--brightteal);
 }
 .one {
     height: 2px;
@@ -78,8 +101,8 @@ h3 {
     margin: 1rem;
     padding: 0.5rem;
     border-radius: 7px;
-    background-color: #ff71fd;;
+    background-color: var(--pink);
 }
 .action img:hover {
-    background-color: #2ffff5;
+    background-color: var(--brightteal)
 }

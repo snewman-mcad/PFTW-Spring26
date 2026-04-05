@@ -30,7 +30,7 @@
         "yardage": 500,
         "fiber": "50% Camel Silk and 50% Mulberry Silk",
         "image": "./dragon-lore.jpg",
-        "colors": ["violet", "teal", "gold"],
+        "colors": ["raspberry", "teal", "gold"],
         "alt": "Multi color skein of yarn. Colors included are teal, gold, white, and mulberry.",
         "price": 37,
         "id": 3

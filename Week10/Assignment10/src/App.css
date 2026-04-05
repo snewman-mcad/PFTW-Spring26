@@ -1,3 +1,17 @@
+/* Color Variables */
+:root {
+    --teal: rgb(0, 199, 196);
+    --darkteal: rgb(2, 120, 120);
+    --pink: rgb(255, 107, 233);
+    --lime: #c2e812;
+    --brightteal: #2ffff5;
+    --darkberry: #570055;
+    --deepblue: #00131b;
+    --trans-deepblue: #001924c8;
+    --deepteal: #003045;
+    --trans-berry: #81007f6f;
+}
+
 #root {
   max-width: 1000px;
   margin: 0 auto;
@@ -22,7 +36,7 @@ h1 {
 }
 
 h1, h2 {
-  color: #ff71fd;
+  color: var(--pink);
 }
 
 h2 {
@@ -36,11 +50,11 @@ img {
   margin: 0 auto;
 }
 .expensive {
-    color: #c2e812;
+    color: var(--lime);
     font-style: italic;
 }
 .dark-background {
-  background-color: #001924c8;
+  background-color: var(--trans-deepblue);
   padding: 0.5rem 0.7rem;
   border-radius: 15px;
   margin: 1rem auto;
@@ -60,7 +74,7 @@ img {
 .reset:hover {
   background-color: rgb(88, 0, 71);
   border: 2px solid darkred;
-  box-shadow: 0px 0px 3px 5px #ff71fd;
+  box-shadow: 0px 0px 3px 5px var(--pink);
 }
 .reset-block {
   display: flex;

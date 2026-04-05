@@ -22,21 +22,26 @@ export function SkeinDetail() {
             <div>
                 <NavLink to="/">Back to Home</NavLink>
                 <h1>{selectedSkein.name}</h1>
-                <div>
-                    <img src={selectedSkein.image} alt={selectedSkein.name} />
-                    <div>
-                        <h3>These are the main colors in this yarn:</h3>
-                        {selectedSkein.colors.map((color) => {
-                            return (<div key={color} className={clsx(["color-square", color])}>{color}</div>)
-                        })}
+                <div className="dark-background">
+                    <div className="color-block">
+                        <img src={selectedSkein.image} alt={selectedSkein.name} />
+                        <div>
+                            <h3>These are the main colors in this yarn:</h3>
+                            <div className="color-block">
+                            {selectedSkein.colors.map((color) => {
+                                return (<div key={color} className={clsx(["color-square", color])} alt={color}></div>)
+                            })}
+                            </div>
+                            <h3>{"Yarn weight: " + selectedSkein.weight}</h3>
+                            {/*using clsx to dynamically use weightNumber to determine the class name and have the class of yarn-size */}
+                            <div className={clsx(["yarn-size", selectedSkein.weightNumber])}></div>
+                            <p>{selectedSkein.yardage + " yards per skein"}</p>
+                            <p>{"Fiber content: " + selectedSkein.fiber}</p>
+                            <p className={selectedSkein.price > 35 ? "expensive + cost" : "cost"}>{"$" + selectedSkein.price + " per skein"}</p>
+                        </div>
                     </div>
+                    <p>This is an extended area for details.</p>
                 </div>
-                <h3>{"Yarn weight: " + selectedSkein.weight}</h3>
-                {/*using clsx to dynamically use weightNumber to determine the class name and have the class of yarn-size */}
-                <div className={clsx(["yarn-size", selectedSkein.weightNumber])}></div>
-                <p>{selectedSkein.yardage + " yards per skein"}</p>
-                <p>{"Fiber content: " + selectedSkein.fiber}</p>
-                <p className={selectedSkein.price > 35 ? "expensive + cost" : "cost"}>{"$" + selectedSkein.price + " per skein"}</p>
             </div>)
             : (<p>The skein in not found.</p>)}
         </div>
