@@ -24,6 +24,7 @@
 h2 a {
     color: var(--pink);
     text-decoration: none;
+    font-size: 2.2rem;
 }
 h2 a:hover {
     font-style: italic;

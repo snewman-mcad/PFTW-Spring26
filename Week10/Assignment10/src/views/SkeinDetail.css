@@ -13,6 +13,7 @@
     --pink: rgb(255, 107, 233);
     --mint: rgb(54, 247, 215);
     --lime: #c2e812;
+    --trans-deepblue: #001924c8;
 }
 
 /* Color Square Styles */
@@ -63,14 +64,23 @@
 /* Other Page/View Styles */
 a {
     font-size: 1.5rem;
-    color: var(--magenta);
+    color: var(--mint);
     text-decoration: none;
 }
 a:hover {
     font-style: italic;
-    color: var(--teal);
+    color: var(--pink);
 }
 .color-block {
     display: flex;
     gap: 2rem;
+}
+.yarn-error {
+    text-align: center;
+    font-size: 2rem;
+    padding: 2rem;
+    background-color: var(--trans-deepblue);
+    max-width: fit-content;
+    margin: 2rem auto;
+    border-radius: 10px;
 }

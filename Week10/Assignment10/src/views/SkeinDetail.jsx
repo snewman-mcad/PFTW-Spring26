@@ -20,7 +20,7 @@ export function SkeinDetail() {
         <div>
             {selectedSkein !== undefined ? (
             <div>
-                <NavLink to="/">Back to Home</NavLink>
+                <NavLink to="/">| Back to Home |</NavLink>
                 <h1>{selectedSkein.name}</h1>
                 <div className="dark-background">
                     <div className="color-block">
@@ -40,10 +40,16 @@ export function SkeinDetail() {
                             <p className={selectedSkein.price > 35 ? "expensive + cost" : "cost"}>{"$" + selectedSkein.price + " per skein"}</p>
                         </div>
                     </div>
-                    <p>This is an extended area for details.</p>
+                    <h3>Description</h3>
+                    <p>{selectedSkein.moreInfo}</p>
                 </div>
             </div>)
-            : (<p>The skein in not found.</p>)}
+            : (
+                <div>
+                    <NavLink to="/">| Back to Home |</NavLink>
+                    <p className="yarn-error">The skein in not found.</p>
+                </div>
+            )}
         </div>
     )
 }
