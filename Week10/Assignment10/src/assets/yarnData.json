@@ -6,6 +6,7 @@
         "yardage": 550,
         "fiber": "50% Superwash Merino Wool and 50% Mulberry Silk",
         "image": "./june-alexandrite.jpg",
+        "colors": ["darkteal", "teal", "violet"],
         "alt": "Skein of teal and violet yarn that has a shiny quality to it.",
         "price": 30,
         "id": 1
@@ -17,6 +18,7 @@
         "yardage": 220,
         "fiber": "50% Superwash Merino Wool and 50% Mulberry Silk",
         "image": "./naughty-list.jpg",
+        "colors": ["magenta", "purple", "blackberry"],
         "alt": "Skein of dark purple, violet, and lilac yarn that has a shiny quality to it.",
         "price": 30,
         "id": 2
@@ -28,6 +30,7 @@
         "yardage": 500,
         "fiber": "50% Camel Silk and 50% Mulberry Silk",
         "image": "./dragon-lore.jpg",
+        "colors": ["violet", "teal", "gold"],
         "alt": "Multi color skein of yarn. Colors included are teal, gold, white, and mulberry.",
         "price": 37,
         "id": 3
@@ -39,6 +42,7 @@
         "yardage": 400,
         "fiber": "100% Superwash Merino Wool",
         "image": "./belladonna-kiss.jpg",
+        "colors": ["blackberry", "raspberry", "darklavender"],
         "alt": "A mostly dark purple skein of yarn with some splashes of white and raspberry.",
         "price": 26,
         "id": 4
@@ -50,6 +54,7 @@
         "yardage": 250,
         "fiber": "70% Superwash Merino Wool, 20% Nylon, and 10% Silk",
         "image": "./october-opal.jpg",
+        "colors": ["blue", "pink", "mint"],
         "alt": "Skein of mostly white and turquoise yarn with some splashes of mint and pink.",
         "price": 25,
         "id": 5
@@ -61,6 +66,7 @@
         "yardage": 400,
         "fiber": "100% Superwash Merino Wool",
         "image": "./blackcurrant-beauty.jpg",
+        "colors": ["purple", "darkteal"],
         "alt": "Skein of dark teal and purple yarn.",
         "price": 26,
         "id": 6

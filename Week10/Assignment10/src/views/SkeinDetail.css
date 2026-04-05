@@ -1,0 +1,10 @@
+/* Color Square Styles */
+.color-square {
+    display: block;
+    width: 70px;
+    height: 70px;
+}
+
+.magenta {
+    background-color: magenta;
+}

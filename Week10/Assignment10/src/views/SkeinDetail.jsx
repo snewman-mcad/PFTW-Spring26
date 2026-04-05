@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { useParams } from 'react-router-dom';
 import yarnData from '../assets/yarnData.json';
 import "../components/Skein.css";
+import "./SkeinDetail.css";
 
 export function SkeinDetail() {
     // destructuring the variable id since it matches the key
@@ -21,7 +22,15 @@ export function SkeinDetail() {
             <div>
                 <NavLink to="/">Back to Home</NavLink>
                 <h1>{selectedSkein.name}</h1>
-                <img src={selectedSkein.image} alt={selectedSkein.name} />
+                <div>
+                    <img src={selectedSkein.image} alt={selectedSkein.name} />
+                    <div>
+                        <h3>These are the main colors in this yarn:</h3>
+                        {selectedSkein.colors.map((color) => {
+                            return (<div key={color} className={clsx(["color-square", color])}>{color}</div>)
+                        })}
+                    </div>
+                </div>
                 <h3>{"Yarn weight: " + selectedSkein.weight}</h3>
                 {/*using clsx to dynamically use weightNumber to determine the class name and have the class of yarn-size */}
                 <div className={clsx(["yarn-size", selectedSkein.weightNumber])}></div>
