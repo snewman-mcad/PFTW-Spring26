@@ -1,10 +1,14 @@
+import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import clsx from 'clsx';
 import { useParams } from 'react-router-dom';
 import yarnData from '../assets/yarnData.json';
+import "../components/Skein.css";
 
 export function SkeinDetail() {
+    // destructuring the variable id since it matches the key
     const {id} = useParams();
-    console.log("params: ", id);
-    console.log("yarn data: ", yarnData);
+
     const selectedSkein = yarnData.find((yarn) => {
         // using +symbol/operator to convert the string of id to a number, yarn.id is a number 
         return yarn.id === +id
@@ -15,10 +19,31 @@ export function SkeinDetail() {
         <div>
             {selectedSkein !== undefined ? (
             <div>
-                <h1>Skein Details</h1>
-                <h2>{selectedSkein.name}</h2>
+                <NavLink to="/">Back to Home</NavLink>
+                <h1>{selectedSkein.name}</h1>
+                <img src={selectedSkein.image} alt={selectedSkein.name} />
+                <h3>{"Yarn weight: " + selectedSkein.weight}</h3>
+                {/*using clsx to dynamically use weightNumber to determine the class name and have the class of yarn-size */}
+                <div className={clsx(["yarn-size", selectedSkein.weightNumber])}></div>
+                <p>{selectedSkein.yardage + " yards per skein"}</p>
+                <p>{"Fiber content: " + selectedSkein.fiber}</p>
+                <p className={selectedSkein.price > 35 ? "expensive + cost" : "cost"}>{"$" + selectedSkein.price + " per skein"}</p>
             </div>)
             : (<p>The skein in not found.</p>)}
         </div>
     )
+}
+
+{/*prop types validation */}
+SkeinDetail.PropTypes = {
+    yarnData: PropTypes.array,
+    name: PropTypes.string,
+    image: PropTypes.string,
+    alt: PropTypes.string,
+    weight: PropTypes.string,
+    weightNumber: PropTypes.string,
+    yardage: PropTypes.number,
+    fiber: PropTypes.string,
+    price: PropTypes.number,
+    id: PropTypes.number
 }

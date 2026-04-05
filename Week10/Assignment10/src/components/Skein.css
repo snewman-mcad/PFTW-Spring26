@@ -1,5 +1,14 @@
+h2 a {
+    color: #ff71fd;
+    text-decoration: none;
+}
+h2 a:hover {
+    font-style: italic;
+    color: aquamarine;
+}
+
 /*styles for the list of yarns*/
-.grid {
+.grid { 
     padding: 2rem;
     display: grid;
     grid-template-columns: 350px auto;
