@@ -1,0 +1,9 @@
+body {
+    background-color: bisque;
+}
+
+canvas {
+    display: block;
+    margin: 2rem auto;
+    background-color: rgb(10, 10, 50);
+}
