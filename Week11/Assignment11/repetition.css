@@ -1,9 +1,19 @@
 body {
-    background-color: bisque;
+    background-color: rgb(16, 1, 17);
+    font-family: sans-serif;
 }
 
+h1 {
+    margin: 1rem auto;
+    font-size: 2.5rem;
+}
+
+h1, h2 {
+    color: rgb(167, 201, 87);
+    text-align: center;
+}
 canvas {
     display: block;
     margin: 2rem auto;
-    background-color: rgb(10, 10, 50);
+    border-radius: 25px;
 }
