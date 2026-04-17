@@ -17,8 +17,19 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(700, 350);
+    createCanvas(700, 330);
     background(21, 97, 109);
+}
+
+//function to create my buttons
+function createRect() {
+    fill(255, 125, 0);
+    strokeWeight(2);
+    stroke(0, 21, 36);
+    rect(startX, startY, 100, 70, 15);
+}
+
+function draw() {
     for(let i = 0; i < allSounds.length; i++) {
         for(let y = 0; y < 2; y ++) {
             for(let x = 0; x < 4; x ++) {
@@ -34,15 +45,6 @@ function setup() {
             startY += 120;
         }
     }
-}
-
-//function to create my buttons
-function createRect() {
-    fill(255, 125, 0);
-    strokeWeight(2);
-    stroke(0, 21, 36);
-    rect(startX, startY, 100, 70, 15);
-    
 }
 
 function mousePressed () {
