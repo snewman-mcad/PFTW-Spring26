@@ -54,6 +54,7 @@ function setup() {
     slider0.position(allSliders[0].x, allSliders[0].y);
     slider0.size(90);
     //adding class of slider to each slider
+    //this will make it easier to style the slider with css
     slider0.class("slider");
 
     slider1 = createSlider(0, 1, 0.5, 0.05);
@@ -125,9 +126,48 @@ function draw() {
     allSliders[6].sound.setVolume(slider6.value());
     allSliders[7].sound.setVolume(slider7.value());
 
+    //creating the play all button
+    let hoverOverPlay = mouseX > 225 && mouseX < 275 && mouseY > 380 && mouseY < 420;
+    if(hoverOverPlay) {
+        //play button on hover
+        //bright fern color
+        fill(6, 183, 0);
+        strokeWeight(2);
+        stroke(255);
+        rect(225, 380, 50, 50, 10);
+        noStroke();
+        fill(0);
+        //play arrow
+        beginShape();
+        vertex(240, 390);
+        vertex(265, 405);
+        vertex(240, 420);
+        endShape(close);
+    } else {
+        //play button
+        //green color
+        fill(4, 113, 0);
+        strokeWeight(2);
+        stroke(255);
+        rect(225, 380, 50, 50, 10);
+        noStroke();
+        fill(255);
+        //play arrow
+        beginShape();
+        vertex(240, 390);
+        vertex(265, 405);
+        vertex(240, 420);
+        endShape(close);
+    }
+    fill(255);
+    noStroke();
+    text("Play All:", 180, 405);
+
+    //creating the stop button
     let hoverOverStop = mouseX > 530 && mouseX < 580 && mouseY > 380 && mouseY < 420;
     if (hoverOverStop) {
         //stop button on hover
+        //raspberry color
         fill(221, 45, 74);
         strokeWeight(2);
         stroke(255);
@@ -137,6 +177,7 @@ function draw() {
         rect(545, 395, 20, 20);
     } else {
         //stop button
+        //crushed berry color
         fill(136, 13, 30);
         strokeWeight(2);
         stroke(255);
@@ -161,6 +202,9 @@ function mousePressed () {
             //if the stop button is clicked on, all music stops
             btn.sound.stop();
         }
+        if(mouseX > 225 && mouseX < 275 && mouseY > 380 && mouseY < 420) {
+            //plays all sound files if clicked since it is not linked to one of the buttons in the myButtons array
+            btn.sound.play();
+        }
     }
 }
-    
