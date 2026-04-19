@@ -1,5 +1,5 @@
 let myButtons = [];
-let slider;
+let allSliders;
 
 function preload() {
     soundFormats("wav", "m4a");
@@ -23,6 +23,17 @@ function preload() {
         { x: 370, y: 190, w: 100, h: 70, r: 15, sound: sound7, name: "guitar"},
         { x: 520, y: 190, w: 100, h: 70, r: 15, sound: sound8, name: "piano"}
     ];
+
+    allSliders = [
+        { x: 120, y: 170, sound: sound1},
+        { x: 270, y: 170, sound: sound2},
+        { x: 240, y: 170, sound: sound3},
+        { x: 570, y: 170, sound: sound4},
+        { x: 120, y: 290, sound: sound5},
+        { x: 270, y: 290, sound: sound6},
+        { x: 420, y: 290, sound: sound7},
+        { x: 570, y: 290, sound: sound8}
+    ]
 }
 
 function setup() {
@@ -31,7 +42,7 @@ function setup() {
     background(62, 80, 91);
 
     slider = createSlider(0, 1, 0.5, 0.05);
-    slider.position(120, 170);
+    slider.position(allSliders[0].x, allSliders[0].y);
     slider.size(90);
 }
 
@@ -56,9 +67,7 @@ function draw() {
         textAlign(CENTER, CENTER);
         text(btn.name, btn.x + btn.w / 2, btn.y + btn.h / 2);
     }
-    for(let btn of myButtons) {
-        btn.sound.setVolume(slider.value());
-    }
+    allSliders[0].sound.setVolume(slider.value());
 }
 
 function mousePressed () {
