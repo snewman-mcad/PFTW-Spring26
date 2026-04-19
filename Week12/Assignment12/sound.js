@@ -33,14 +33,14 @@ function preload() {
     ];
 
     allSliders = [
-        { x: 80, y: 170, sound: sound0},
-        { x: 230, y: 170, sound: sound1},
-        { x: 380, y: 170, sound: sound2},
-        { x: 530, y: 170, sound: sound3},
-        { x: 80, y: 330, sound: sound4},
-        { x: 230, y: 330, sound: sound5},
-        { x: 380, y: 330, sound: sound6},
-        { x: 530, y: 330, sound: sound7}
+        { x: 80, y: 330, sound: sound0},
+        { x: 230, y: 330, sound: sound1},
+        { x: 380, y: 330, sound: sound2},
+        { x: 530, y: 330, sound: sound3},
+        { x: 80, y: 490, sound: sound4},
+        { x: 230, y: 490, sound: sound5},
+        { x: 380, y: 490, sound: sound6},
+        { x: 530, y: 490, sound: sound7}
     ]
 }
 
@@ -125,14 +125,29 @@ function draw() {
     allSliders[6].sound.setVolume(slider6.value());
     allSliders[7].sound.setVolume(slider7.value());
 
-    //stop button
-    fill(136, 13, 30)
-    strokeWeight(2);
-    stroke(255);
-    rect(530, 380, 50, 50, 10);
-    noStroke();
+    let hoverOverStop = mouseX > 530 && mouseX < 580 && mouseY > 380 && mouseY < 420;
+    if (hoverOverStop) {
+        //stop button on hover
+        fill(221, 45, 74);
+        strokeWeight(2);
+        stroke(255);
+        rect(530, 380, 50, 50, 10);
+        noStroke();
+        fill(0);
+        rect(545, 395, 20, 20);
+    } else {
+        //stop button
+        fill(136, 13, 30);
+        strokeWeight(2);
+        stroke(255);
+        rect(530, 380, 50, 50, 10);
+        noStroke();
+        fill(255);
+        rect(545, 395, 20, 20);
+    }
     fill(255);
-    rect(545, 395, 20, 20);
+    noStroke();
+    text("Stop:", 500, 405);
 }
 
 function mousePressed () {
