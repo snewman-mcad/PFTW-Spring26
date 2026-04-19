@@ -45,7 +45,7 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(700, 430);
+    createCanvas(700, 450);
     //deep space blue color
     background(0, 48, 69);
 
@@ -124,6 +124,15 @@ function draw() {
     allSliders[5].sound.setVolume(slider5.value());
     allSliders[6].sound.setVolume(slider6.value());
     allSliders[7].sound.setVolume(slider7.value());
+
+    //stop button
+    fill(136, 13, 30)
+    strokeWeight(2);
+    stroke(255);
+    rect(530, 380, 50, 50, 10);
+    noStroke();
+    fill(255);
+    rect(545, 395, 20, 20);
 }
 
 function mousePressed () {
@@ -133,5 +142,10 @@ function mousePressed () {
             console.log('the button has been clicked', btn);
             btn.sound.play();
         }
+        if(mouseX > 530 && mouseX < 580 && mouseY > 380 && mouseY < 420) {
+            //if the stop button is clicked on, all music stops
+            btn.sound.stop();
+        }
     }
 }
+    
