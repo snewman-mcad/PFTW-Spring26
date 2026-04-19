@@ -1,4 +1,5 @@
 let myButtons = [];
+let slider;
 
 function preload() {
     soundFormats("wav", "m4a");
@@ -28,6 +29,10 @@ function setup() {
     createCanvas(700, 330);
     //charcoal blue color
     background(62, 80, 91);
+
+    slider = createSlider(0, 1, 0.5, 0.05);
+    slider.position(120, 170);
+    slider.size(90);
 }
 
 
@@ -51,6 +56,9 @@ function draw() {
         textAlign(CENTER, CENTER);
         text(btn.name, btn.x + btn.w / 2, btn.y + btn.h / 2);
     }
+    for(let btn of myButtons) {
+        btn.sound.setVolume(slider.value());
+    }
 }
 
 function mousePressed () {
@@ -59,6 +67,8 @@ function mousePressed () {
         if(mouseX > btn.x && mouseX < btn.x + btn.w && mouseY > btn.y && mouseY < btn.y + btn.h) {
             console.log('the button has been clicked', btn);
             btn.sound.play();
-        } 
+        } //else {
+            //btn.sound.stop();
+        //}
     }
 }
