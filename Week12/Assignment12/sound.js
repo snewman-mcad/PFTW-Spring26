@@ -10,25 +10,25 @@ let slider6;
 let slider7;
 
 function preload() {
-    soundFormats("wav", "m4a");
+    soundFormats("wav", "m4a", "mp3");
     //loading in some random instrumental sounds from freesound.org
-    let sound0 = loadSound("./Sounds/thirsk__128-cello-loop-2.wav");
-    let sound1 = loadSound("./Sounds/deleted_user_5205523__junk-drum-kit-loop-3.wav");
-    let sound2 = loadSound("./Sounds/chrisbutler99__tropical-loop-1.wav");
-    let sound3 = loadSound("./Sounds/violinsimma__violin-carnatic-phrase-am.wav");
-    let sound4 = loadSound("./Sounds/animastudios__steel-drum-105bpm-gm.wav");
-    let sound5 = loadSound("./Sounds/thesoundlibrary__drum-loop-2.wav");
-    let sound6 = loadSound("./Sounds/overfieldsofwheat__uplifting-acoustic-guitar.wav");
-    let sound7 = loadSound("./Sounds/eee3333e__guitar-and-piano-loop.m4a");
+    let sound0 = loadSound("./Sounds/andymanister__one-thing-cafe-scene-cello.mp3");
+    let sound1 = loadSound("./Sounds/lukaszzz123__classical-slow-violin.wav");
+    let sound2 = loadSound("./Sounds/chalicewell__harp.mp3");
+    let sound3 = loadSound("./Sounds/khoeppel__guitarsample2.m4a");
+    let sound4 = loadSound("./Sounds/josefpres__bass-loops-009.wav");
+    let sound5 = loadSound("./Sounds/bernardogc__rumba-criolla.wav");
+    let sound6 = loadSound("./Sounds/ethang__kerriflute.wav");
+    let sound7 = loadSound("./Sounds/josefpres__piano-loops-203.wav");
 
     myButtons = [
         { x: 70, y: 70, w: 100, h: 70, r: 15, sound: sound0, name: "cello"},
-        { x: 220, y: 70, w: 100, h: 70, r: 15, sound: sound1, name: "drum"},
-        { x: 370, y: 70, w: 100, h: 70, r: 15, sound: sound2, name: "trop"},
-        { x: 520, y: 70, w: 100, h: 70, r: 15, sound: sound3, name: "violin"},
-        { x: 70, y: 230, w: 100, h: 70, r: 15, sound: sound4, name: "steel"},
+        { x: 220, y: 70, w: 100, h: 70, r: 15, sound: sound1, name: "violin"},
+        { x: 370, y: 70, w: 100, h: 70, r: 15, sound: sound2, name: "harp"},
+        { x: 520, y: 70, w: 100, h: 70, r: 15, sound: sound3, name: "guitar"},
+        { x: 70, y: 230, w: 100, h: 70, r: 15, sound: sound4, name: "bass"},
         { x: 220, y: 230, w: 100, h: 70, r: 15, sound: sound5, name: "drum"},
-        { x: 370, y: 230, w: 100, h: 70, r: 15, sound: sound6, name: "guitar"},
+        { x: 370, y: 230, w: 100, h: 70, r: 15, sound: sound6, name: "flute"},
         { x: 520, y: 230, w: 100, h: 70, r: 15, sound: sound7, name: "piano"}
     ];
 
