@@ -8,21 +8,73 @@ function setup(){
     increase = 3.0;
 }
 function pendulum() {
-    clear();
+    //clear();
     let mySinVal = sin(position);
-    let ampSin = mySinVal * 200;
+    let ampSin = mySinVal * 140;
     //using math.abs to use absolute/positive values
     //negative values will cause the circle to move all of the way through the cosine curve
     let myCosVal = Math.abs(cos(position));
-    let ampCos = myCosVal * 70;
+    let ampCos = myCosVal * 60;
     strokeWeight(5);
     stroke(255, 183, 3);
-    line(width/2, 0, ampSin + 300, height/2 + ampCos);
+    line(width/2, 200, ampSin + 300, height/2 + ampCos + 100);
     fill(255, 183, 3);
-    ellipse(ampSin + 300, height/2 + ampCos - 10, 100, 100);
+    ellipse(ampSin + 300, height/2 + ampCos + 100, 50, 50);
     position = position + increase;
 }
+function clockBack() {
+    noStroke();
+    fill(33, 160, 160);
+    rect(0, 550, width, 50);
+    fill(99, 60, 40);
+    beginShape();
+    vertex(width/2, 50);
+    vertex(500, 200);
+    vertex(500, 570);
+    vertex(100, 570);
+    vertex(100, 200);
+    endShape(CLOSE);
+    fill(35, 31, 32);
+    rect(120, 220, 360, 320);
+}
+function clockFront() {
+    stroke(99, 60, 40);
+    strokeWeight(30);
+    line(100, 210, 500, 210);
+    line(100, 540, 500, 540);
+    stroke(163, 88, 47);
+    strokeWeight(10);
+    line(90, 200, 510, 200);
+    line(90, 530, 510, 530);
+    //clock at the top
+    stroke(255, 183, 3);
+    strokeWeight(3);
+    fill(255, 232, 173);
+    circle(300, 140, 80);
+    noStroke();
+    fill(35, 31, 32);
+    circle(300, 140, 10);
+}
+function glass() {
+    strokeWeight(5);
+    stroke(255, 183, 3)
+    line(280, 380, 280, 420);
+    line(520, 380, 520, 420);
+    //left pane
+    noStroke();
+    fill(145, 200, 200, 50);
+    rect(120, 225, 180, 300);
+    //right pane
+    beginShape();
+    vertex(480, 225);
+    vertex(480, 525);
+    vertex(530, 550);
+    vertex(530, 200);
+    endShape(CLOSE);
+}
 function draw() {
-
+    clockBack();
     pendulum();
+    clockFront();
+    glass();
 }

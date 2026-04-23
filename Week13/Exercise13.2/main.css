@@ -9,11 +9,12 @@ h1 {
 }
 
 h1, h2 {
-    color: rgb(167, 201, 87);
+    color: rgb(255, 183, 3);
     text-align: center;
 }
 canvas {
     display: block;
     margin: 2rem auto;
     border-radius: 25px;
+    background-color: bisque;
 }
