@@ -5,10 +5,9 @@ function setup(){
     createCanvas(600, 600);
     angleMode(DEGREES);
     position = 0.0;
-    increase = 3.0;
+    increase = 4.0;
 }
 function pendulum() {
-    //clear();
     let mySinVal = sin(position);
     let ampSin = mySinVal * 140;
     //using math.abs to use absolute/positive values
@@ -46,7 +45,7 @@ function clockFront() {
     strokeWeight(10);
     line(90, 200, 510, 200);
     line(90, 530, 510, 530);
-    //clock at the top
+    //clock base at the top
     stroke(255, 183, 3);
     strokeWeight(3);
     fill(255, 232, 173);
@@ -72,9 +71,55 @@ function glass() {
     vertex(530, 200);
     endShape(CLOSE);
 }
+function clockHands() {
+    //creating a functioning clock that will keep the time
+    //using the built in functions to get second, minute, and hour
+    let hr = hour();
+    let mn = minute();
+    let sc = second();
+    //translating center to clock center
+    translate(300, 140);
+    rotate(-90);
+    
+    //second hand
+    noFill();
+    stroke(229, 61, 0);
+    strokeWeight(2);
+    //mapping the angle needed to keep track of the second hand
+    let secondAngle = map(sc, 0, 60, 0, 360);
+    //worked through the angles by drawing arcs first (keeping them in for reference)
+    //arc(0, 0, 60, 60, 0, secondAngle);
+    push();
+    //rotating by the angle created by the map
+    rotate(secondAngle);
+    line(0, 0, 35, 0);
+    pop();
+
+    //minute hand
+    stroke(35, 31, 32);
+    strokeWeight(5);
+    let minuteAngle = map(mn, 0, 60, 0, 360);
+    //arc(0, 0, 60, 60, 0, minuteAngle);
+    push();
+    rotate(minuteAngle);
+    line(0, 0, 30, 0);
+    pop();
+
+    //hour hand
+    stroke(35, 31, 32);
+    strokeWeight(7);
+    //reseting the clock every twelve hours with the modulus %
+    let hourAngle = map(hr % 12, 0, 12, 0, 360);
+    //arc(0, 0, 45, 45, 0, hourAngle);
+    push();
+    rotate(hourAngle);
+    line(0, 0, 20, 0);
+    pop();
+}
 function draw() {
     clockBack();
     pendulum();
     clockFront();
     glass();
+    clockHands();
 }
