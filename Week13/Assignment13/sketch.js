@@ -37,9 +37,6 @@ class Firefly {
         this.rollOff = random(0, 10);
         this.turnOff = random(0, 25);
 
-        //fireflies will rise from the grass
-        this.rise = 0;
-
         this.update();
     }
     update() {
@@ -48,8 +45,6 @@ class Firefly {
 
         let w = width * 0.25;
         let h = height * 0.25;
-
-        this.rise += 0.001;
 
         //using noise to return random numbers that feel more organic
         //mapping what is returned to the values of w and h to become equal to this.x/y
