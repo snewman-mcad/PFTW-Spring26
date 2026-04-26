@@ -147,12 +147,12 @@ class Yard {
         if(index % 2 === 0) {
             //even number rotation and styles
             this.rotation[index] += 0.0025;
-            stroke(50, 200 - (length * 2.5), length * 1.5);
+            stroke(10, 140 - (length * 2.5), 100 - length * 1.5);
             rotateBy = map(noise(this.rotation[index]), 0, 1, -QUARTER_PI * 0.75, QUARTER_PI * 0.75);
         } else {
             //odd number rotation and styles
             this.rotation[index] += 0.0025;
-            stroke(50, 200 - (length * 2.5), length * 1.5);
+            stroke(10, 140 - (length * 2.5), 100 - length * 1.5);
             rotateBy = map(-sin(this.rotation[index]), -1, 1, -QUARTER_PI * 0.25, QUARTER_PI * 0.25);
         }
         //stroke weight changing based on length of segment so that shorter segments at top of blade get thinner
@@ -166,4 +166,8 @@ class Yard {
             this.blade(length * this.segment[index], index)
         }
     }
+}
+
+function mousePressed() {
+    fireflies.push(new Firefly());
 }
