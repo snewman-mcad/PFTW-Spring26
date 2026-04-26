@@ -1,11 +1,15 @@
 let fireflies = [];
 let population = 5;
+let grass;
+let rotateBy;
+let length;
 
 function setup(){
     createCanvas(600, 600);
     for(let i = 0; i < population; i++) {
         fireflies.push(new Firefly());
     }
+    grass = new Yard();
 }
 
 function draw() {
@@ -13,6 +17,7 @@ function draw() {
     for(let i = 0; i < fireflies.length; i++) {
         fireflies[i].update();
     }
+    grass.update();
 }
 
 class Firefly {
@@ -99,5 +104,66 @@ class Firefly {
         stroke(255, 240, 0);
 
         pop();
+    }
+}
+
+class Yard {
+    constructor() {
+        this.grass = [];
+        //rotational value offset to use for rotating segments
+        this.rotation = [];
+        //size of the segment
+        this.size = [];
+        //for length of the grass to vary
+        this.segment = [];
+        //keep track of the elements in the array
+        this.index = 0;
+        this.population = 130;
+        for(let x = 0; x < width; x += width/this.population) {
+            this.index += 1;
+            this.grass.push(x);
+            //rotational offset slightly different for each blade of grass
+            this.rotation.push((this.index * 0.055) + 0.015);
+            //min max size of the blade of grass
+            this.size.push(random(35, 55));
+            //how much the segments are decremented as it goes from one segment in the grass blade to the next
+            this.segment.push(0.7);
+        }
+        this.update();
+    }
+    update() {
+        for(let k = 0; k < this.index; k++) {
+            let length = this.size[k];
+
+            //encapsulating translations and rotations of the blades of grass
+            push();
+            translate(this.grass[k], height);
+            this.blade(length, k);
+            pop();
+        }
+    }
+    blade(length, index) {
+        //checking to see if the index is an even number
+        if(index % 2 === 0) {
+            //even number rotation and styles
+            this.rotation[index] += 0.0025;
+            stroke(50, 200 - (length * 2.5), length * 1.5);
+            rotateBy = map(noise(this.rotation[index]), 0, 1, -QUARTER_PI * 0.75, QUARTER_PI * 0.75);
+        } else {
+            //odd number rotation and styles
+            this.rotation[index] += 0.0025;
+            stroke(50, 200 - (length * 2.5), length * 1.5);
+            rotateBy = map(-sin(this.rotation[index]), -1, 1, -QUARTER_PI * 0.25, QUARTER_PI * 0.25);
+        }
+        //stroke weight changing based on length of segment so that shorter segments at top of blade get thinner
+        strokeWeight(length * 2 * random(0.07, 0.1));
+        rotate(rotateBy);
+        //drawing line from where rotation was started to the end of the length
+        //negative length because we want the grass blade to 'grow' upward
+        line(0, 0, 0, -length);
+        translate(0, -length);
+        if(length > 20) {
+            this.blade(length * this.segment[index], index)
+        }
     }
 }
