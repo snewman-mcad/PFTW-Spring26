@@ -1,0 +1,86 @@
+/* Color Variables */
+:root {
+    --magenta: rgba(247, 0, 214, 0.934);
+    --teal: rgb(0, 199, 196);
+    --darkteal: rgb(2, 120, 120);
+    --violet: rgb(139, 24, 162);
+    --purple: rgb(78, 15, 131);
+    --blackberry: rgb(33, 13, 67);
+    --raspberry: rgb(117, 15, 87);
+    --gold: rgb(243, 198, 0);
+    --darklavender: rgb(159, 103, 227);
+    --blue: rgb(53, 117, 255);
+    --pink: rgb(255, 107, 233);
+    --mint: rgb(54, 247, 215);
+    --lime: #c2e812;
+    --trans-deepblue: #001924c8;
+}
+
+/* Color Square Styles */
+.color-square {
+    display: block;
+    width: 70px;
+    height: 70px;
+    border: solid 3px #fff1ff;
+}
+
+.magenta {
+    background-color: var(--magenta);
+}
+.teal {
+    background-color: var(--teal);
+}
+.darkteal {
+    background-color: var(--darkteal);
+}
+.violet {
+    background-color: var(--violet);
+}
+.purple {
+    background-color: var(--purple);
+}
+.blackberry {
+    background-color: var(--blackberry);
+}
+.raspberry {
+    background-color: var(--raspberry);
+}
+.gold {
+    background-color: var(--gold);
+}
+.darklavender {
+    background-color: var(--darklavender);
+}
+.blue {
+    background-color: var(--blue);
+}
+.pink {
+    background-color: var(--pink);
+}
+.mint {
+    background-color: var(--mint);
+}
+
+/* Other Page/View Styles */
+a {
+    font-size: 1.5rem;
+    color: var(--mint);
+    text-decoration: none;
+}
+a:hover {
+    font-style: italic;
+    color: var(--pink);
+}
+.color-block {
+    display: flex;
+    gap: 2rem;
+}
+.yarn-error {
+    text-align: center;
+    font-size: 2rem;
+    padding: 2rem;
+    background-color: var(--trans-deepblue);
+    max-width: fit-content;
+    margin: 2rem auto;
+    border-radius: 10px;
+}
