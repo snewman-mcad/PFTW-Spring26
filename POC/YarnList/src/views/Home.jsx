@@ -75,8 +75,8 @@ export function Home() {
                     <p>To reset <br />the wish list:</p>
                     <button className="reset" onClick={() => {
                         /*resets the list of yarns to the original array allSkeins*/
-                        setYarns(yarnData);
-                        repo.intialize(yarnData)
+                        repo.initialize(yarnData);
+                        setYarns(repo.getAllYarns());
                     }}>Reset</button>
                 </div>
             </div>
