@@ -32,6 +32,9 @@ export function Home() {
         /*returns everything except for the yarn that was clicked on (and had the matching id)*/
         return yarn.id !== id;
         });
+        //taking the updatedArray and using initialize to update/reset the array/values
+        //repo.initialize(updatedArray);
+        repo.deleteYarn(id);
         setYarns(updatedArray);
     }
 
