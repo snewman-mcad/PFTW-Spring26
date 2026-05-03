@@ -2,18 +2,18 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { useParams } from 'react-router-dom';
-import yarnData from '../assets/yarnData.json';
+import Repository from '../modules/Repository.jsx';
 import "../components/Skein.css";
 import "./SkeinDetail.css";
 
 export function SkeinDetail() {
+    const repo = Repository();
+
     // destructuring the variable id since it matches the key
     const {id} = useParams();
 
-    const selectedSkein = yarnData.find((yarn) => {
-        // using +symbol/operator to convert the string of id to a number, yarn.id is a number 
-        return yarn.id === +id
-    })
+    const selectedSkein = repo.getYarnByID(id);
+
     console.log("selected yarn: ", selectedSkein);
 
     return (
@@ -28,9 +28,9 @@ export function SkeinDetail() {
                         <div>
                             <h3>These are the main colors in this yarn:</h3>
                             <div className="color-block">
-                            {selectedSkein.colors.map((color) => {
+                            {/* {selectedSkein.colors.map((color) => {
                                 return (<div key={color} className={clsx(["color-square", color])} alt={color}></div>)
-                            })}
+                            })} */}
                             </div>
                             <h3>{"Yarn weight: " + selectedSkein.weight}</h3>
                             {/*using clsx to dynamically use weightNumber to determine the class name and have the class of yarn-size */}
