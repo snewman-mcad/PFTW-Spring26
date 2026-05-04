@@ -2,7 +2,7 @@ import { useState } from 'react';
 import RecipeCard from '../components/RecipeCard.jsx';
 import { nanoid } from 'nanoid';
 import { NewRecipeForm } from '../components/NewRecipeForm.jsx';
-import yarnData from '../assets/yarnData.json';
+import recipeData from '../assets/recipeData.json';
 import Repository from '../modules/Repository.jsx';
 import '../App.css';
 
@@ -10,7 +10,7 @@ export function Home() {
 
     const repo = Repository();
     if(repo.getAllYarns() === null) {
-        repo.initialize(yarnData);
+        repo.initialize(recipeData);
     }
 
     const [yarns, setYarns] = useState(repo.getAllYarns());
@@ -79,7 +79,7 @@ export function Home() {
                     <p>To reset <br />the wish list:</p>
                     <button className="reset" onClick={() => {
                         /*resets the list of yarns to the original array allSkeins*/
-                        repo.initialize(yarnData);
+                        repo.initialize(recipeData);
                         setYarns(repo.getAllYarns());
                     }}>Reset</button>
                 </div>

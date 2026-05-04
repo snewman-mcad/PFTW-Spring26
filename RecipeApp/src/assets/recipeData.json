@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Boston Cream Pie",
+        "image": "./june-alexandrite.jpg",
+        "ingredients": ["2 c. heavy (whipping) cream", "1 3” cinnamon stick or ¼ tsp. ground cinnamon", "1 vanilla bean, halved lengthwise or 1 Tbsp. vanilla extract"],
+        "directions": ["Custard filling: Place cream and cinnamon in a small heavy saucepan.  If using vanilla bean, scrape seeds into cream and add pod.  Slowly bring to a boil over medium-low heat, watching closely or cream may overflow.  Remove from heat and add sugar; stir until dissolved.  Add vanilla extract, if using.  If using cinnamon stick and vanilla bean, let steep for about 1 hour.", "Heat oven to 325°F.  Have ready a 9” ovenproof glass pie plate, a shallow baking pan large enough to hold pie plate and a 9” round cake pan.", "Bring a kettle of water to a boil.  Whisk egg yolks in a medium bowl.  Reheat cream mixture over medium-low heat until almost boiling.  Gradually whisk (don’t beat) hot cream into egg yolks.  Pour into pie plate; set pie plate in baking pan.  Add boiling water to come halfway up sides of pie plate."],
+        "alt": "Boston cream pie",
+        "note": "Do not use low-quality dark chocolate for the topping. My husband tried to do it with Nestle and it didn't taste the same as using Ghirardelli.",
+        "servings": 10,
+        "prep": "",
+        "total": "",
+        "id": "rec1"
+    }
+]

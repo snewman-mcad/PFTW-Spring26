@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import clsx from 'clsx';
 import { useParams } from 'react-router-dom';
 import Repository from '../modules/Repository.jsx';
 import "../components/RecipeCard.css";
@@ -26,22 +25,22 @@ export function RecipeDetail() {
                     <div className="color-block">
                         <img src={selectedSkein.image} alt={selectedSkein.name} />
                         <div>
-                            <h3>{"Yarn weight: " + selectedSkein.weight}</h3>
-                            {/*using clsx to dynamically use weightNumber to determine the class name and have the class of yarn-size */}
-                            <div className={clsx(["yarn-size", selectedSkein.weightNumber])}></div>
-                            <p>{selectedSkein.yardage + " yards per skein"}</p>
-                            <p>{"Fiber content: " + selectedSkein.fiber}</p>
-                            <p className={selectedSkein.price > 35 ? "expensive + cost" : "cost"}>{"$" + selectedSkein.price + " per skein"}</p>
+                            <h3>Ingredients</h3>
+                            <ul>
+                                {selectedSkein.ingredients.map((ingredient) => {
+                                return (<li key={ingredient}>{ingredient}</li>)
+                            })}
+                            </ul>
                         </div>
                     </div>
-                    <h3>Description</h3>
-                    <p>{selectedSkein.moreInfo}</p>
+                    <h3>Notes</h3>
+                    <p>{selectedSkein.note}</p>
                 </div>
             </div>)
             : (
                 <div>
                     <NavLink to="/">| Back to Home |</NavLink>
-                    <p className="yarn-error">The skein in not found.</p>
+                    <p className="yarn-error">The recipe could not be found.</p>
                 </div>
             )}
         </div>
