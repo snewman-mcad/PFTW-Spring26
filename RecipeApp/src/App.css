@@ -1,0 +1,88 @@
+/* Color Variables */
+:root {
+    --teal: rgb(0, 199, 196);
+    --darkteal: rgb(2, 120, 120);
+    --pink: rgb(255, 107, 233);
+    --lime: #c2e812;
+    --brightteal: #2ffff5;
+    --darkberry: #570055;
+    --deepblue: #00131b;
+    --trans-deepblue: #001924c8;
+    --deepteal: #003045;
+    --trans-berry: #81007f6f;
+}
+
+#root {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: left;
+}
+body {
+  background-color: #002231;
+  background-image: url(./assets/YarnPattern.png);
+  color: white;
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin: 1rem auto;
+  align-items: center;
+  max-width: fit-content;
+}
+
+h1, h2 {
+  color: var(--pink);
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+img {
+  max-width: 350px;
+}
+.page {
+  margin: 0 auto;
+}
+.expensive {
+    color: var(--lime);
+    font-style: italic;
+}
+.dark-background {
+  background-color: var(--trans-deepblue);
+  padding: 0.5rem 0.7rem;
+  border-radius: 15px;
+  margin: 1rem auto;
+}
+
+/*reset button styles*/
+.reset {
+  font-size: 1.25rem;
+  background-color: darkred;
+  color: white;
+  border: 2px solid rgb(209, 0, 0);
+  padding: 0.5rem 0.75rem;
+  border-radius: 7px;
+  cursor: pointer;
+  display: block;
+}
+.reset:hover {
+  background-color: rgb(88, 0, 71);
+  border: 2px solid darkred;
+  box-shadow: 0px 0px 3px 5px var(--pink);
+}
+.reset-block {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;
+}
+.reset-block p {
+  margin: 0;
+  padding: 0 0.7rem 0 0;
+}
