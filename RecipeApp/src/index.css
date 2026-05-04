@@ -1,5 +1,18 @@
+@font-face {
+    font-family: ElmsSans-Medium;
+    src: url(./fonts/ElmsSans-Medium.ttf);
+}
+@font-face {
+    font-family: ElmsSans-SemiBold;
+    src: url(./fonts/ElmsSans-SemiBold.ttf);
+}
+
 :root {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  /*Fonts*/
+  --font-medium: ElmsSans-Medium, sans-serif;
+  --font-semibold: ElmsSans-SemiBold, sans-serif;
+
+  font-family: Avenir, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 

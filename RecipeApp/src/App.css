@@ -1,30 +1,40 @@
-/* Color Variables */
+@font-face {
+    font-family: ElmsSans-Medium;
+    src: url(./fonts/ElmsSans-Medium.ttf);
+}
+@font-face {
+    font-family: ElmsSans-SemiBold;
+    src: url(./fonts/ElmsSans-SemiBold.ttf);
+}
+
 :root {
-    --teal: rgb(0, 199, 196);
-    --darkteal: rgb(2, 120, 120);
-    --pink: rgb(255, 107, 233);
-    --lime: #c2e812;
-    --brightteal: #2ffff5;
-    --darkberry: #570055;
-    --deepblue: #00131b;
-    --trans-deepblue: #001924c8;
-    --deepteal: #003045;
-    --trans-berry: #81007f6f;
+  /*Fonts*/
+  --font-medium: ElmsSans-Medium;
+  --font-semibold: ElmsSans-SemiBold;
+
+  /*Colors*/
+    --blackish: #0b0b0b;
+    --dark-grey: #242a2d;
+    --light-grey: #b7c1ce;
+    --whiteish: #effdff;
+    --pepperred: #ed2024;
+    --brickred: #690c0d;
 }
 
 #root {
-  max-width: 1000px;
+  max-width: 1700px;
   margin: 0 auto;
   text-align: left;
 }
 body {
-  background-color: #002231;
-  background-image: url(./assets/YarnPattern.png);
-  color: white;
+  background-color: var(--dark-grey);
+  /* background-image: url(./assets/YarnPattern.png); */
+  color: var(--whiteish);
   padding: 2rem;
 }
 
 h1 {
+  font-family: var(--font-semibold), Avenir, sans-serif;
   font-size: 3.2em;
   line-height: 1.1;
   text-align: center;
@@ -35,50 +45,52 @@ h1 {
   max-width: fit-content;
 }
 
-h1, h2 {
-  color: var(--pink);
-}
-
 h2 {
+  font-family: var(--font-medium), Avenir, sans-serif;
   font-size: 2rem;
 }
 
 img {
-  max-width: 350px;
+  max-width: 300px;
 }
 .page {
   margin: 0 auto;
 }
 .expensive {
-    color: var(--lime);
+    color: var(--pepperred);
     font-style: italic;
 }
 .dark-background {
-  background-color: var(--trans-deepblue);
+  background-color: var(--blackish);
   padding: 0.5rem 0.7rem;
   border-radius: 15px;
   margin: 1rem auto;
+}
+.collection {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 3rem;
 }
 
 /*reset button styles*/
 .reset {
   font-size: 1.25rem;
-  background-color: darkred;
-  color: white;
-  border: 2px solid rgb(209, 0, 0);
+  background-color: var(--brickred);
+  color: var(--whiteish);
+  border: 2px solid var(--pepperred);
   padding: 0.5rem 0.75rem;
   border-radius: 7px;
   cursor: pointer;
   display: block;
 }
 .reset:hover {
-  background-color: rgb(88, 0, 71);
-  border: 2px solid darkred;
-  box-shadow: 0px 0px 3px 5px var(--pink);
+  background-color: var(--brickred);
+  border: 2px solid var(--pepperred);
+  box-shadow: 0px 0px 3px 5px var(--pepperred);
 }
 .reset-block {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-end; 
   align-items: center;
   margin: 0;
 }

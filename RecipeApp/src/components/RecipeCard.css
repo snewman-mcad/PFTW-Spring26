@@ -1,28 +1,18 @@
 /* Color Variables */
 :root {
-    --magenta: rgba(247, 0, 214, 0.934);
-    --teal: rgb(0, 199, 196);
-    --darkteal: rgb(2, 120, 120);
-    --violet: rgb(139, 24, 162);
-    --purple: rgb(78, 15, 131);
-    --blackberry: rgb(33, 13, 67);
-    --raspberry: rgb(117, 15, 87);
-    --gold: rgb(243, 198, 0);
-    --darklavender: rgb(159, 103, 227);
-    --blue: rgb(53, 117, 255);
-    --pink: rgb(255, 107, 233);
-    --mint: rgb(54, 247, 215);
-    --lime: #c2e812;
-    --brightteal: #2ffff5;
-    --darkberry: #570055;
-    --deepblue: #00131b;
-    --trans-deepblue: #001924c8;
-    --deepteal: #003045;
-    --trans-berry: #81007f6f;
+    --blackish: #0b0b0b;
+    --dark-grey: #242a2d;
+    --light-grey: #b7c1ce;
+    --whiteish: #effdff;
+    --pepperred: #ed2024;
+    --brickred: #690c0d;
 }
-
+h2 {
+    text-align: center;
+    max-width: 300px;
+}
 h2 a {
-    color: var(--pink);
+    color: var(--dark-grey);
     text-decoration: none;
     font-size: 2.2rem;
 }
@@ -32,32 +22,19 @@ h2 a:hover {
 }
 
 /*styles for the list of yarns*/
-.grid { 
+.flex { 
     padding: 2rem;
-    display: grid;
-    grid-template-columns: 350px auto;
-    gap: 2rem;
-}
-.grid h2, .grid h3, .grid p {
-    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
 }
 h3 {
-    color: var(--brightteal);
+    color: var(--light-grey);
 }
-.odd {
-    background-color: var(--darkberry);
-}
-
-.odd-inner {
-    background-color: var(--deepteal);
-}
-
-.even {
-    background-color: var(--deepblue);
-}
-
-.even-inner {
-    background-color: var(--trans-berry);
+.odd, .even {
+    max-width: fit-content;
+    margin: 0 auto;
+    background-color: var(--whiteish);
+    box-shadow: 8px 8px 8px 8px var(--blackish);
 }
 
 .cost {
@@ -66,35 +43,10 @@ h3 {
     letter-spacing: 0.1rem;
 }
 
-/*creating a bar of color to visually indicate the yarn size */
-.yarn-size {
-    background-color: var(--brightteal);
-}
-.one {
-    height: 2px;
-    margin: 0 1.5rem;
-}
-.two {
-    height: 4px;
-    margin: 0 1.5rem;
-}
-.three {
-    height: 6px;
-    margin: 0 1.5rem;
-}
-.four {
-    height: 8px;
-    margin: 0 1.5rem;
-}
-.five {
-    height: 10px;
-    margin: 0 1.5rem;
-}
-
 /*button styles*/
 .action {
     display: flex;
-    justify-content: end;
+    justify-content: center;
 }
 .action img {
     height: 30px;
@@ -102,8 +54,8 @@ h3 {
     margin: 1rem;
     padding: 0.5rem;
     border-radius: 7px;
-    background-color: var(--pink);
+    background-color: var(--pepperred);
 }
 .action img:hover {
-    background-color: var(--brightteal)
+    background-color: var(--light-grey);
 }

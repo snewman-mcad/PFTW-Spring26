@@ -52,7 +52,8 @@ export function Home() {
 
     return (
         <div className='page'>
-            <h1 className='dark-background'>Yarn Wish List</h1>
+            {/* Replace the h1 with a masthead */}
+            <h1>Recipes</h1>
             <div className='collection'>
                 {yarns.map((yarn, index) => {
                 return(
