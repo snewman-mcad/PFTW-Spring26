@@ -8,35 +8,35 @@ const Repository = () => ({
     },
     addNewRecipe: (updatedSkeins) => {
         let stringRecipeData = localStorage.getItem("recipeArray");
-        let allYarns = JSON.parse(stringRecipeData);
-        allYarns.push(updatedSkeins);
-        localStorage.setItem("recipeArray", JSON.stringify(allYarns));
+        let allRecipes = JSON.parse(stringRecipeData);
+        allRecipes.push(updatedSkeins);
+        localStorage.setItem("recipeArray", JSON.stringify(allRecipes));
     },
     deleteRecipe: (recipeToDeleteID) => {
         let stringRecipeData = localStorage.getItem("recipeArray");
-        let allYarns = JSON.parse(stringRecipeData);
+        let allRecipes = JSON.parse(stringRecipeData);
         let index = 0;
         let isFound = false;
         //iterating over the array of allYarns to find the index of the one to be deleted
-        for(let i = 0; i < allYarns.length; i++) {
-            if(allYarns[i].id === recipeToDeleteID) {
+        for(let i = 0; i < allRecipes.length; i++) {
+            if(allRecipes[i].id === recipeToDeleteID) {
                 index = i;
                 isFound = true;
             }
         }
         //if we found the index, removing that object from the allYarns array
         if(isFound) {
-            allYarns.splice(index, 1);
+            allRecipes.splice(index, 1);
         }
         //updating localStorage with the updated array
-        localStorage.setItem("recipeArray", JSON.stringify(allYarns));
+        localStorage.setItem("recipeArray", JSON.stringify(allRecipes));
     },
     getRecipeByID: (id) => {
         let stringRecipeData = localStorage.getItem("recipeArray");
         let allRecipes = JSON.parse(stringRecipeData);
         let index = 0;
         let isFound = false;
-        //iterating over the array of allYarns to find the index of the one to be deleted
+        //iterating over the array of allRecipes to find the index of the one to be deleted
         for(let i = 0; i < allRecipes.length; i++) {
             if(allRecipes[i].id === id) {
                 index = i;

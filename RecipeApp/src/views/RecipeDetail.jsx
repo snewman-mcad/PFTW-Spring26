@@ -11,7 +11,7 @@ export function RecipeDetail() {
     // destructuring the variable id since it matches the key
     const {id} = useParams();
 
-    const selectedRecipe = repo.getYarnByID(id);
+    const selectedRecipe = repo.getRecipeByID(id);
 
     console.log("selected recipe: ", selectedRecipe);
 
@@ -22,7 +22,7 @@ export function RecipeDetail() {
                 <NavLink to="/">| Back to Home |</NavLink>
                 <h1>{selectedRecipe.name}</h1>
                 <div className="container">
-                    <div className="color-block">
+                    <div className="top-block">
                         <div>
                             <h2>Ingredients</h2>
                             <ul>
@@ -42,7 +42,9 @@ export function RecipeDetail() {
                         </ol>
                     </div>
                     <h2>Notes</h2>
-                    <p>{selectedRecipe.note}</p>
+                    <div>{selectedRecipe.note.map((singleNote) =>{
+                        return (<p key={selectedRecipe.id}>{singleNote}</p>)
+                    })}</div>
                 </div>
             </div>)
             : (

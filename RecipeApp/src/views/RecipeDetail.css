@@ -14,7 +14,7 @@
     max-width: 1000px;
 }
 h1 {
-    color: var(--pepperred);
+    color: var(--whiteish);
 }
 h2{
     text-align: left;
@@ -48,9 +48,9 @@ a:hover {
     font-style: italic;
     color: var(--pepperred);
 }
-.color-block {
+.top-block {
     display: flex;
-    gap: 2rem;
+    justify-content: space-between;
 }
 .yarn-error {
     text-align: center;

@@ -41,7 +41,11 @@ body {
   color: var(--whiteish);
   padding: 2rem;
 }
+.page {
+  margin: 0 auto;
+}
 
+/* Heading Styles */
 h1 {
   font-family: var(--font-semibold), Avenir, sans-serif;
   font-size: 3.2em;
@@ -53,21 +57,14 @@ h1 {
   align-items: center;
   max-width: fit-content;
 }
-
 h2 {
   font-family: var(--font-medium), Avenir, sans-serif;
   font-size: 2rem;
 }
 
+
 img {
   max-width: 300px;
-}
-.page {
-  margin: 0 auto;
-}
-.expensive {
-    color: var(--pepperred);
-    font-style: italic;
 }
 .dark-background {
   background-color: var(--blackish);
@@ -84,9 +81,10 @@ img {
 /*reset button styles*/
 .reset {
   font-size: 1.25rem;
+  font-family: var(--font-medium), sans-serif;
   background-color: var(--brickred);
   color: var(--whiteish);
-  border: 2px solid var(--pepperred);
+  border: 2px solid var(--blackish);
   padding: 0.5rem 0.75rem;
   border-radius: 7px;
   cursor: pointer;
@@ -94,14 +92,14 @@ img {
 }
 .reset:hover {
   background-color: var(--brickred);
-  border: 2px solid var(--pepperred);
+  border: 2px solid var(--blackish);
   box-shadow: 0px 0px 3px 5px var(--pepperred);
 }
 .reset-block {
   display: flex;
   justify-content: flex-end; 
   align-items: center;
-  margin: 0;
+  margin: 1rem 0 0 0;
 }
 .reset-block p {
   margin: 0;

@@ -4,7 +4,7 @@ import copy from '../assets/copy.png';
 import trash from '../assets/trash.png';
 import "./RecipeCard.css";
 
-export default function Skein({name, image, alt, id, deleteFn, duplicateFn}) {
+export default function RecipeCard({name, image, alt, id, deleteFn, duplicateFn}) {
     return(  
         <div className={'polaroid'}>
             <div className={"flex"} key={id}>
@@ -18,11 +18,11 @@ export default function Skein({name, image, alt, id, deleteFn, duplicateFn}) {
                         /*prevents the reloading of the page*/
                         evt.preventDefault();
                         duplicateFn(id)
-                    }}><img src={copy} alt="copy icon" /></a>
+                    }}><img src={copy} className='small-button' alt="copy icon" /></a>
                     <a href="#" onClick={(evt) => {
                         evt.preventDefault();
                         deleteFn(id)
-                    }}><img src={trash} alt="trash icon" /></a>
+                    }}><img src={trash} className='small-button' alt="trash icon" /></a>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@ export default function Skein({name, image, alt, id, deleteFn, duplicateFn}) {
 }
 
 {/*prop types validation */}
-Skein.PropTypes = {
+RecipeCard.PropTypes = {
     name: PropTypes.string,
     image: PropTypes.string,
     alt: PropTypes.string,
