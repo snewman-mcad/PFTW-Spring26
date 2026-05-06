@@ -1,25 +1,25 @@
 const Repository = () => ({
-    getAllYarns: () => {
-        let stringYarnData = localStorage.getItem("skeinsArray");
-        return JSON.parse(stringYarnData);
+    getAllRecipes: () => {
+        let stringRecipeData = localStorage.getItem("recipeArray");
+        return JSON.parse(stringRecipeData);
     },
-    initialize: (yarnData) => {
-        localStorage.setItem("skeinsArray", JSON.stringify(yarnData));
+    initialize: (recipeData) => {
+        localStorage.setItem("recipeArray", JSON.stringify(recipeData));
     },
-    addNewYarn: (updatedSkeins) => {
-        let stringYarnData = localStorage.getItem("skeinsArray");
-        let allYarns = JSON.parse(stringYarnData);
+    addNewRecipe: (updatedSkeins) => {
+        let stringRecipeData = localStorage.getItem("recipeArray");
+        let allYarns = JSON.parse(stringRecipeData);
         allYarns.push(updatedSkeins);
-        localStorage.setItem("skeinsArray", JSON.stringify(allYarns));
+        localStorage.setItem("recipeArray", JSON.stringify(allYarns));
     },
-    deleteYarn: (yarnToDeleteID) => {
-        let stringYarnData = localStorage.getItem("skeinsArray");
-        let allYarns = JSON.parse(stringYarnData);
+    deleteRecipe: (recipeToDeleteID) => {
+        let stringRecipeData = localStorage.getItem("recipeArray");
+        let allYarns = JSON.parse(stringRecipeData);
         let index = 0;
         let isFound = false;
         //iterating over the array of allYarns to find the index of the one to be deleted
         for(let i = 0; i < allYarns.length; i++) {
-            if(allYarns[i].id === yarnToDeleteID) {
+            if(allYarns[i].id === recipeToDeleteID) {
                 index = i;
                 isFound = true;
             }
@@ -29,22 +29,22 @@ const Repository = () => ({
             allYarns.splice(index, 1);
         }
         //updating localStorage with the updated array
-        localStorage.setItem("skeinsArray", JSON.stringify(allYarns));
+        localStorage.setItem("recipeArray", JSON.stringify(allYarns));
     },
-    getYarnByID: (id) => {
-        let stringYarnData = localStorage.getItem("skeinsArray");
-        let allYarns = JSON.parse(stringYarnData);
+    getRecipeByID: (id) => {
+        let stringRecipeData = localStorage.getItem("recipeArray");
+        let allRecipes = JSON.parse(stringRecipeData);
         let index = 0;
         let isFound = false;
         //iterating over the array of allYarns to find the index of the one to be deleted
-        for(let i = 0; i < allYarns.length; i++) {
-            if(allYarns[i].id === id) {
+        for(let i = 0; i < allRecipes.length; i++) {
+            if(allRecipes[i].id === id) {
                 index = i;
                 isFound = true;
             }
         }
         if(isFound) {
-            return allYarns[index];
+            return allRecipes[index];
         } else {
             return undefined;
         }

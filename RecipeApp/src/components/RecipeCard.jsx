@@ -4,9 +4,9 @@ import copy from '../assets/copy.png';
 import trash from '../assets/trash.png';
 import "./RecipeCard.css";
 
-export default function Skein({name, image, alt, id, odd, deleteFn, duplicateFn}) {
+export default function Skein({name, image, alt, id, deleteFn, duplicateFn}) {
     return(  
-        <div className={odd ? "odd" : "even"}>
+        <div className={'polaroid'}>
             <div className={"flex"} key={id}>
                 <img src={image} alt={alt} />
                 <h2>

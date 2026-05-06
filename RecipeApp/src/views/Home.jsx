@@ -9,22 +9,22 @@ import '../App.css';
 export function Home() {
 
     const repo = Repository();
-    if(repo.getAllYarns() === null) {
+    if(repo.getAllRecipes() === null) {
         repo.initialize(recipeData);
     }
 
-    const [yarns, setYarns] = useState(repo.getAllYarns());
+    const [yarns, setYarns] = useState(repo.getAllRecipes());
 
-    function addNewYarn(data) {
+    function addNewRecipe(data) {
         //do stuff with data to add more yarn
         //taking existing yarn skeins and spreading a new deck to it
         console.log("this is the data", data);
         //creating a new id that is 6 characters long for the new yarn
         const newId = nanoid(6);
         //adds the new id to the set of data
-        const newYarnSet = {...data, id: newId};
-        setYarns([...yarns, newYarnSet]);
-        repo.addNewYarn(newYarnSet);
+        const newRecipeSet = {...data, id: newId};
+        setYarns([...yarns, newRecipeSet]);
+        repo.addNewRecipe(newRecipeSet);
     }
 
     function deleteSkein(id) {
@@ -34,7 +34,7 @@ export function Home() {
         });
         //taking the updatedArray and using initialize to update/reset the array/values
         //repo.initialize(updatedArray);
-        repo.deleteYarn(id);
+        repo.deleteRecipe(id);
         setYarns(updatedArray);
     }
 
@@ -47,7 +47,7 @@ export function Home() {
         const updatedSkeins = {...matchingSkein, id: nanoid()};
         /*adding the updatedSkeins object to the array of yarns using state*/
         setYarns([...yarns, updatedSkeins]);
-        repo.addNewYarn(updatedSkeins);
+        repo.addNewRecipe(updatedSkeins);
     }
 
     return (
@@ -71,18 +71,15 @@ export function Home() {
             </div>
 
             {/*passing the addNewYarn function as a prop to the NewYarnForm component*/}
-            <NewRecipeForm addNewYarn={addNewYarn}/>
+            <NewRecipeForm addNewRecipe={addNewRecipe}/>
 
-            <div className='dark-background'>
-                <p className='note'>Please note: If a yarn/skein is expensive, <span className={"expensive"}>above $35</span>, the price will be marked <span className={"expensive"}>green and italic</span>.</p>
-                <div className="reset-block">
-                    <p>To reset <br />the wish list:</p>
-                    <button className="reset" onClick={() => {
-                        /*resets the list of yarns to the original array allSkeins*/
-                        repo.initialize(recipeData);
-                        setYarns(repo.getAllYarns());
-                    }}>Reset</button>
-                </div>
+            <div className="reset-block">
+                <p>To reset <br />the list:</p>
+                <button className="reset" onClick={() => {
+                    /*resets the list of yarns to the original array allSkeins*/
+                    repo.initialize(recipeData);
+                    setYarns(repo.getAllRecipes());
+                }}>Reset</button>
             </div>
         </div>
     )

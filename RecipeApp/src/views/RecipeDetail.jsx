@@ -11,30 +11,38 @@ export function RecipeDetail() {
     // destructuring the variable id since it matches the key
     const {id} = useParams();
 
-    const selectedSkein = repo.getYarnByID(id);
+    const selectedRecipe = repo.getYarnByID(id);
 
-    console.log("selected yarn: ", selectedSkein);
+    console.log("selected recipe: ", selectedRecipe);
 
     return (
         <div>
-            {selectedSkein !== undefined ? (
+            {selectedRecipe !== undefined ? (
             <div>
                 <NavLink to="/">| Back to Home |</NavLink>
-                <h1>{selectedSkein.name}</h1>
-                <div className="dark-background">
+                <h1>{selectedRecipe.name}</h1>
+                <div className="container">
                     <div className="color-block">
-                        <img src={selectedSkein.image} alt={selectedSkein.name} />
                         <div>
-                            <h3>Ingredients</h3>
+                            <h2>Ingredients</h2>
                             <ul>
-                                {selectedSkein.ingredients.map((ingredient) => {
+                                {selectedRecipe.ingredients.map((ingredient) => {
                                 return (<li key={ingredient}>{ingredient}</li>)
-                            })}
+                                })}
                             </ul>
                         </div>
+                        <img src={selectedRecipe.image} alt={selectedRecipe.name} />
                     </div>
-                    <h3>Notes</h3>
-                    <p>{selectedSkein.note}</p>
+                    <div>
+                        <h2>Directions</h2>
+                        <ol>
+                            {selectedRecipe.directions.map((direction) => {
+                            return (<li key={direction}>{direction}</li>)
+                            })}
+                        </ol>
+                    </div>
+                    <h2>Notes</h2>
+                    <p>{selectedRecipe.note}</p>
                 </div>
             </div>)
             : (

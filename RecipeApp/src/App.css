@@ -6,11 +6,21 @@
     font-family: ElmsSans-SemiBold;
     src: url(./fonts/ElmsSans-SemiBold.ttf);
 }
+@font-face {
+    font-family: ElmsSans-MediumItalic;
+    src: url(./fonts/ElmsSans-MediumItalic.ttf);
+}
+@font-face {
+    font-family: ElmsSans-SemiBoldItalic;
+    src: url(./fonts/ElmsSans-SemiBoldItalic.ttf);
+}
 
 :root {
   /*Fonts*/
   --font-medium: ElmsSans-Medium;
   --font-semibold: ElmsSans-SemiBold;
+  --font-mediumitalic: ElmsSans-MediumItalic;
+  --font-semibolditalic: ElmsSans-SemiBoldItalic;
 
   /*Colors*/
     --blackish: #0b0b0b;
@@ -28,7 +38,6 @@
 }
 body {
   background-color: var(--dark-grey);
-  /* background-image: url(./assets/YarnPattern.png); */
   color: var(--whiteish);
   padding: 2rem;
 }
