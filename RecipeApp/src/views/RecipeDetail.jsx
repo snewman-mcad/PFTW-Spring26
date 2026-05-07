@@ -21,7 +21,7 @@ export function RecipeDetail() {
             <HeaderImage />
             {selectedRecipe !== undefined ? (
             <div>
-                <NavLink to="/">| Back to Home |</NavLink>
+                <NavLink to="/" className={"back-link"}>| Back to Home |</NavLink>
                 <h1>{selectedRecipe.name}</h1>
                 <div className="container">
                     <div className="top-block">
@@ -51,8 +51,8 @@ export function RecipeDetail() {
             </div>)
             : (
                 <div>
-                    <NavLink to="/">| Back to Home |</NavLink>
-                    <p className="yarn-error">The recipe could not be found.</p>
+                    <NavLink to="/" className={"back-link"}>| Back to Home |</NavLink>
+                    <p className="recipe-error">The recipe could not be found.</p>
                 </div>
             )}
         </div>
