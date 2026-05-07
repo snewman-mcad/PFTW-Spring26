@@ -15,6 +15,7 @@
     src: url(./fonts/ElmsSans-SemiBoldItalic.ttf);
 }
 
+
 :root {
   /*Fonts*/
   --font-medium: ElmsSans-Medium;
@@ -39,7 +40,7 @@
 body {
   background-color: var(--dark-grey);
   color: var(--whiteish);
-  padding: 2rem;
+  margin: 0;
 }
 .page {
   margin: 0 auto;
@@ -50,7 +51,6 @@ h1 {
   font-family: var(--font-semibold), Avenir, sans-serif;
   font-size: 3.2em;
   line-height: 1.1;
-  text-align: center;
   display: flex;
   justify-content: center;
   margin: 1rem auto;
@@ -62,10 +62,6 @@ h2 {
   font-size: 2rem;
 }
 
-
-img {
-  max-width: 300px;
-}
 .dark-background {
   background-color: var(--blackish);
   padding: 0.5rem 0.7rem;

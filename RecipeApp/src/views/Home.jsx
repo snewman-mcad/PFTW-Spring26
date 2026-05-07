@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import RecipeCard from '../components/RecipeCard.jsx';
 import { nanoid } from 'nanoid';
+import { Masthead } from '../components/Masthead.jsx';
 import { NewRecipeForm } from '../components/NewRecipeForm.jsx';
 import recipeData from '../assets/recipeData.json';
 import Repository from '../modules/Repository.jsx';
@@ -50,8 +51,8 @@ export function Home() {
 
     return (
         <div className='page'>
-            {/* Replace the h1 with a masthead */}
-            <h1>Recipes</h1>
+            <Masthead />
+            
             <div className='collection'>
                 {recipes.map((recipe, index) => {
                 return(
