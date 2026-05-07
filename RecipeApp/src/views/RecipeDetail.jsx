@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
+import { HeaderImage } from '../components/HeaderImage.jsx';
 import Repository from '../modules/Repository.jsx';
 import "../components/RecipeCard.css";
 import "./RecipeDetail.css";
@@ -17,6 +18,7 @@ export function RecipeDetail() {
 
     return (
         <div>
+            <HeaderImage />
             {selectedRecipe !== undefined ? (
             <div>
                 <NavLink to="/">| Back to Home |</NavLink>
@@ -43,7 +45,7 @@ export function RecipeDetail() {
                     </div>
                     <h2>Notes</h2>
                     <div>{selectedRecipe.note.map((singleNote) =>{
-                        return (<p key={selectedRecipe.id}>{singleNote}</p>)
+                        return (<p key={singleNote}>{singleNote}</p>)
                     })}</div>
                 </div>
             </div>)
