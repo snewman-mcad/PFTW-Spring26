@@ -57,7 +57,7 @@ export function Home() {
                 <div className='searchbar'>
                     <p>Search:</p>
                 </div>
-                <NavLink to="/newrecipe" className={""}><button className="reset">Add a Recipe</button></NavLink>
+                <NavLink to="/newrecipe"><button className="button">Add a Recipe</button></NavLink>
             </div>
             
             <div className='collection'>
@@ -78,7 +78,7 @@ export function Home() {
 
             <div className="reset-block">
                 <p>To reset <br />the list:</p>
-                <button className="reset" onClick={() => {
+                <button className="button button--reset" onClick={() => {
                     /*resets the list of yarns to the original set of recipes from recipeData*/
                     repo.initialize(recipeData);
                     setRecipes(repo.getAllRecipes());
