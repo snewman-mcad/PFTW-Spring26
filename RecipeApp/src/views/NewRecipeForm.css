@@ -9,15 +9,26 @@
     margin: 0 auto 2rem;
 }
 .form-area {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 1rem auto 0;
+    padding: 0 1rem;  
+    
 }
 .form-group {
     margin: 0.7rem 0;
 }
+.form-group--grid {
+    display: grid;
+    grid-template-columns: auto auto;
+}
 .form-group p {
     font-size: 1.5rem;
     margin-bottom: 0;
+}
+.form-buttons {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
 }
 label {
     font-size: 1.3rem;
@@ -30,28 +41,32 @@ textarea {
     display: block;
     min-width: 15rem;
 }
-.grid-form {
+ 
+@media screen and (min-width: 1100px) {
+    .form-group--grid {
     display: grid;
     grid-template-columns: auto auto;
-    align-content: start;
+    align-content: start; 
+    }
+}
+@media screen and (max-width: 1099px) {
+    .form-group--grid {
+    display: grid;
+    grid-template-columns: auto;
+    align-content: start;  
+    }
 }
 .row-span {
     grid-row: span 2;
 }
 
-/*styles specific to the radio buttons, can also be used for checkboxes*/
-.radio-area, .flex {
+input, textarea {
+    min-width: 20rem;
+}
+.textarea-block {
     display: flex;
-    justify-content: space-between;
-    max-width: 45rem;
+    align-items: flex-end;
 }
-.radio-area--smaller {
-    max-width: 28rem;
-}
-.radio-area label {
-    margin-right: 0;
-}
-
 /*button styles*/
 .button {
     font-size: 1.5rem;
@@ -66,7 +81,7 @@ textarea {
 }
 .button:hover {
     box-shadow: 0px 0px 3px 5px var(--pepperred);
-    }
+}
 /*reset button styles*/
 .button--reset {
   font-size: 1.25rem;
@@ -79,7 +94,31 @@ textarea {
   border: 2px solid var(--blackish);
   box-shadow: 0px 0px 3px 5px var(--pepperred);
 }
-/* .form-buttons button {
-    display: inline-block;
-    margin-right: 1rem;
-} */
+/* append buttons */
+.button--append {
+  font-size: 1rem;
+  font-family: var(--font-medium), sans-serif;
+  border: 2px solid var(--blackish);
+  margin: 0.5rem 0 0.3rem 0.3rem;
+  padding: 0.3rem 0.5rem;
+  display: inline-block;
+}
+.button--append:hover {
+  border: 2px solid var(--blackish);
+  box-shadow: 0px 0px 3px 5px var(--pepperred);
+}
+/* remove buttons */
+.button--remove {
+  font-size: 1rem;
+  font-family: var(--font-medium), sans-serif;
+  background-color: var(--brickred);
+  border: 2px solid var(--blackish);
+  margin: 0 0 0.3rem 0.3rem;
+  padding: 0.3rem 0.5rem;
+  display: inline-block;
+}
+.button--remove:hover {
+  background-color: var(--brickred);
+  border: 2px solid var(--blackish);
+  box-shadow: 0px 0px 3px 5px var(--pepperred);
+}

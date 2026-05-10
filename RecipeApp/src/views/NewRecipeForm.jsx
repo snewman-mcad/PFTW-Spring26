@@ -72,21 +72,23 @@ export function NewRecipeForm() {
 
                 <h2>Ingredients</h2>
                 <div className="form-group">
+                    <div className='form-group--grid'>
                     {ingredientFields.map((field, index) => {
                         return (
                         <div key={field.id}>
                             <label htmlFor='ingredient'>Ingredient</label>
                             {/* selecting the field and then its value */}
                             <input {...register(`ingredients.${index}.value`)}/>
-                            <button type='button' onClick={() => {
+                            <button type='button' className='button button--remove' onClick={() => {
                                 removeIngredient(index);
                             }}>Remove</button>
                         </div>
                         )
                     })}
-                    <button type='button' onClick={() => {
+                    </div>
+                    <button type='button' className='button button--append' onClick={() => {
                         appendIngredient({value: ''});
-                    }}>Add</button>
+                    }}>Add another ingredient</button>
                 </div>
 
                 <h2>Directions</h2>
@@ -95,17 +97,18 @@ export function NewRecipeForm() {
                         return (
                         <div key={field.id}>
                             <label htmlFor='direction'>Direction</label>
-                            {/* selecting the field and then its value */}
-                            <input {...register(`directions.${index}.value`)}/>
-                            <button type='button' onClick={() => {
-                                removeDirection(index);
-                            }}>Remove</button>
+                            <div className='textarea-block'>
+                                <textarea {...register(`directions.${index}.value`)}/>
+                                <button type='button' className='button button--remove' onClick={() => {
+                                    removeDirection(index);
+                                }}>Remove</button>
+                            </div>
                         </div>
                         )
                     })}
-                    <button type='button' onClick={() => {
+                    <button type='button' className='button button--append' onClick={() => {
                         appendDirection({value: ''});
-                    }}>Add</button>
+                    }}>Add another direction</button>
                 </div>
 
                 <h2>Notes</h2>
@@ -114,17 +117,18 @@ export function NewRecipeForm() {
                         return (
                         <div key={field.id}>
                             <label htmlFor='note'>Note</label>
-                            {/* selecting the field and then its value */}
-                            <input {...register(`note.${index}.value`)}/>
-                            <button type='button' onClick={() => {
-                                removeNote(index);
-                            }}>Remove</button>
+                            <div className='textarea-block'>
+                                <textarea {...register(`note.${index}.value`)}/>
+                                <button type='button' className='button button--remove' onClick={() => {
+                                    removeNote(index);
+                                }}>Remove</button>
+                            </div>
                         </div>
                         )
                     })}
-                    <button type='button' onClick={() => {
+                    <button type='button' className='button button--append' onClick={() => {
                         appendNote({value: ''});
-                    }}>Add</button>
+                    }}>Add another note</button>
                 </div>
 
                 <div className="form-buttons">
