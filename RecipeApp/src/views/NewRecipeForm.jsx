@@ -29,13 +29,21 @@ export function NewRecipeForm() {
         //providing default image just in case user doesn't have one
         ingredients: [],
         directions: [],
+        note: [],
         image: tomato
     }});
-    const { fields, append, remove } = useFieldArray({
+    const { fields: ingredientFields, append: appendIngredient, remove: removeIngredient } = useFieldArray({
         name: 'ingredients',
-        name2: 'directions',
         control
-    })
+    });
+    const { fields: directionFields, append: appendDirection, remove: removeDirection } = useFieldArray({
+        name: 'directions',
+        control
+    });
+    const { fields: noteFields, append: appendNote, remove: removeNote } = useFieldArray({
+        name: 'note',
+        control
+    });
 
     function submitAndClear(data) {
         addNewRecipe(data);
@@ -64,58 +72,58 @@ export function NewRecipeForm() {
 
                 <h2>Ingredients</h2>
                 <div className="form-group">
-                    {fields.map((field, index) => {
+                    {ingredientFields.map((field, index) => {
                         return (
                         <div key={field.id}>
                             <label htmlFor='ingredient'>Ingredient</label>
                             {/* selecting the field and then its value */}
                             <input {...register(`ingredients.${index}.value`)}/>
                             <button type='button' onClick={() => {
-                                remove(index);
+                                removeIngredient(index);
                             }}>Remove</button>
                         </div>
                         )
                     })}
                     <button type='button' onClick={() => {
-                        append({value: ''});
+                        appendIngredient({value: ''});
                     }}>Add</button>
                 </div>
 
                 <h2>Directions</h2>
                 <div className="form-group">
-                    {fields.map((field, index) => {
+                    {directionFields.map((field, index) => {
                         return (
                         <div key={field.id}>
                             <label htmlFor='direction'>Direction</label>
                             {/* selecting the field and then its value */}
                             <input {...register(`directions.${index}.value`)}/>
                             <button type='button' onClick={() => {
-                                remove(index);
+                                removeDirection(index);
                             }}>Remove</button>
                         </div>
                         )
                     })}
                     <button type='button' onClick={() => {
-                        append({value: ''});
+                        appendDirection({value: ''});
                     }}>Add</button>
                 </div>
 
                 <h2>Notes</h2>
                 <div className="form-group">
-                    {fields.map((field, index) => {
+                    {noteFields.map((field, index) => {
                         return (
                         <div key={field.id}>
                             <label htmlFor='note'>Note</label>
                             {/* selecting the field and then its value */}
                             <input {...register(`note.${index}.value`)}/>
                             <button type='button' onClick={() => {
-                                remove(index);
+                                removeNote(index);
                             }}>Remove</button>
                         </div>
                         )
                     })}
                     <button type='button' onClick={() => {
-                        append({value: ''});
+                        appendNote({value: ''});
                     }}>Add</button>
                 </div>
 

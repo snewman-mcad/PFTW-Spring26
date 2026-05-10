@@ -41,6 +41,7 @@ h3 {
 }
 .polaroid {
     max-width: fit-content;
+    min-width: 20rem;
     margin: 0 auto;
     background-color: var(--whiteish);
     box-shadow: 6px 6px 6px 4px var(--blackish);
