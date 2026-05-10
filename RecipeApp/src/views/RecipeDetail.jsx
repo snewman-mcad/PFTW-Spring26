@@ -29,7 +29,7 @@ export function RecipeDetail() {
                             <h2>Ingredients</h2>
                             <ul>
                                 {selectedRecipe.ingredients.map((ingredient) => {
-                                return (<li key={ingredient}>{ingredient}</li>)
+                                return (<li key={ingredient.value}>{ingredient.value}</li>)
                                 })}
                             </ul>
                         </div>
