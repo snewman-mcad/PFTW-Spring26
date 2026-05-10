@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import RecipeCard from '../components/RecipeCard.jsx';
 import { nanoid } from 'nanoid';
 import { Masthead } from '../components/Masthead.jsx';
-import recipeData from '../assets/recipeData.json';
+import recipeData from '../assets/recipeDataTest.json';
 import Repository from '../modules/Repository.jsx';
 import '../App.css';
 

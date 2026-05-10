@@ -39,13 +39,13 @@ export function RecipeDetail() {
                         <h2>Directions</h2>
                         <ol>
                             {selectedRecipe.directions.map((direction) => {
-                            return (<li key={direction}>{direction}</li>)
+                            return (<li key={direction.value}>{direction.value}</li>)
                             })}
                         </ol>
                     </div>
                     <h2>Notes</h2>
                     <div>{selectedRecipe.note.map((singleNote) =>{
-                        return (<p key={singleNote}>{singleNote}</p>)
+                        return (<p key={singleNote.value}>{singleNote.value}</p>)
                     })}</div>
                 </div>
             </div>)
