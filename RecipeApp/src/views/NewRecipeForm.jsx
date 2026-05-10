@@ -1,16 +1,17 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import Repository from '../modules/Repository.jsx';
 import { HeaderImage } from '../components/HeaderImage.jsx';
 import { nanoid } from 'nanoid';
 import "./NewRecipeForm.css";
-import { useForm }  from "react-hook-form";
+import { useForm, useFieldArray }  from "react-hook-form";
 import tomato from "/Tomato.png";
 
 export function NewRecipeForm() {
     const repo = Repository();
 
     const [recipes, setRecipes] = useState(repo.getAllRecipes());
+    // const [inputFields, setInputFields] = useState([]);
 
     function addNewRecipe(data) {
         //do stuff with data to add more recipes
@@ -24,15 +25,47 @@ export function NewRecipeForm() {
         repo.addNewRecipe(newRecipeSet);
     }
 
-    const {register, handleSubmit, formState: {errors}, reset} = useForm({defaultValues: {
+    const {register, handleSubmit, formState: {errors}, control, reset} = useForm(
+        {defaultValues: {
         //providing default image just in case user doesn't have one
-        image: tomato
+        image: tomato, ingredients: ''
     }});
+    const { fields, append, remove } = useFieldArray({
+        ingredients: 'ingredient',
+        control,
+    })
 
     function submitAndClear(data) {
         addNewRecipe(data);
         reset();
     }
+
+    useEffect(() => {
+        new Array().map((index) => {
+            append({ingredients: index});
+        }) 
+    });
+    // const handleFormChange = (index, event) => {
+    //     let data = [...inputFields];
+    //     // targeting the index of the data variable and the property
+    //     // inside this data index we are storing the values form the input fields
+    //     data[index][event.target.name] = event.target.value;
+    //     // storing data in the inputFields array
+    //     setInputFields(data);
+    // }
+
+    // const addFields = (e) => {
+    //     e.preventDefault();
+    //     let newfield = {};
+    //     setInputFields([...inputFields, newfield]);
+    // }
+
+    // const removeFields = (index, e) => {
+    //     e.preventDefault();
+    //     let data = [...inputFields];
+    //     data.splice(index, 1);
+    //     setInputFields(data);
+    // }
 
     return (
         <div>
@@ -56,8 +89,40 @@ export function NewRecipeForm() {
 
                 <h2>Ingredients</h2>
                 <div className="form-group">
-                    <label htmlFor="ingredients">Add ingredients:</label>
-                    <input id="ingredients" {...register("ingredients")} />
+                    {fields.map((field, index) => {
+                        return (
+                        <div key={field.id}>
+                            <label htmlFor='ingredient'>Ingredient</label>
+                            {/* selecting the field and then its value */}
+                            <input defaultValue={`${field.ingredients}`} {...register(`ingredients.${index}.ingredients`)}/>
+                        </div>
+                        )
+                    })}
+                    <button type='button' onClick={() => {
+                        append({ingredients: 'ingredient'});
+                    }}>Add</button>
+                    <button type='button' onClick={() => {
+                        remove();
+                    }}>Remove</button>
+
+
+                    {/* {inputFields.map((input, index) => {
+                        return (
+                            <div key={index}>
+                                <input
+                                name='ingredients'
+                                value={input.ingredients}
+                                // passing the index and event to the handleFormChange function when the form is changed
+                                onChange={event => handleFormChange(index, event)}
+                                {...register("ingredients")}
+                                />
+                                <button onClick={() => removeFields(index)}>Remove ingredient</button>
+                            </div>
+                        )
+                    })}
+                    <button onClick={addFields}>Add another ingredient</button>
+                    {/* <label htmlFor="ingredients">Add ingredients:</label>
+                    <input id="ingredients" {...register("ingredients")} /> */}
                 </div>
 
                 <h2>Directions</h2>
