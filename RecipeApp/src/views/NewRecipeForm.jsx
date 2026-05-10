@@ -27,9 +27,9 @@ export function NewRecipeForm() {
     const {register, handleSubmit, formState: {errors}, control, reset} = useForm(
         {defaultValues: {
         //providing default image just in case user doesn't have one
-        ingredients: [],
-        directions: [],
-        note: [],
+        ingredients: [{value: ''}],
+        directions: [{value: ''}],
+        note: [{value: ''}],
         image: tomato
     }});
     const { fields: ingredientFields, append: appendIngredient, remove: removeIngredient } = useFieldArray({

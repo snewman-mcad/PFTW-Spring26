@@ -33,7 +33,7 @@ export function RecipeDetail() {
                                 })}
                             </ul>
                         </div>
-                        <img src={selectedRecipe.image} alt={selectedRecipe.name} />
+                        <img src={selectedRecipe.image} alt={selectedRecipe.alt} />
                     </div>
                     <div>
                         <h2>Directions</h2>

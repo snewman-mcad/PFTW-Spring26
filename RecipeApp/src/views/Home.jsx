@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import RecipeCard from '../components/RecipeCard.jsx';
 import { nanoid } from 'nanoid';
 import { Masthead } from '../components/Masthead.jsx';
-import recipeData from '../assets/recipeDataTest.json';
+import recipeData from '../assets/recipeData.json';
 import Repository from '../modules/Repository.jsx';
 import '../App.css';
 
@@ -15,18 +15,6 @@ export function Home() {
     }
 
     const [recipes, setRecipes] = useState(repo.getAllRecipes());
-
-    // function addNewRecipe(data) {
-    //     //do stuff with data to add more recipes
-    //     //taking existing recipes and spreading a new data to it
-    //     console.log("this is the data", data);
-    //     //creating a new id that is 6 characters long for the new recipe
-    //     const newId = nanoid(6);
-    //     //adds the new id to the set of data
-    //     const newRecipeSet = {...data, id: newId};
-    //     setRecipes([...recipes, newRecipeSet]);
-    //     repo.addNewRecipe(newRecipeSet);
-    // }
 
     function deleteRecipe(id) {
         const updatedArray = recipes.filter((recipe) => {
@@ -54,9 +42,6 @@ export function Home() {
             <Masthead />
 
             <div className='subhead-area'>
-                <div className='searchbar'>
-                    <p>Search:</p>
-                </div>
                 <NavLink to="/newrecipe"><button className="button">Add a Recipe</button></NavLink>
             </div>
             
