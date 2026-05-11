@@ -55,6 +55,7 @@ export function NewRecipeForm() {
     function submitAndClear(data) {
         addNewRecipe(data);
         reset();
+        alert("Your recipe has been added to the home page!");
     }
 
     return (
@@ -153,7 +154,7 @@ export function NewRecipeForm() {
                 <div className="form-buttons">
                 <button type="submit" className='button'>Submit Recipe</button>
                 <button className="button button--reset" onClick={() => {reset()}}>Reset Form</button>
-            </div> 
+            </div>
             </form>
         </div>
     )
