@@ -9,6 +9,7 @@ import '../App.css';
 
 export function Home() {
 
+    // Repository is used for interacting with the localStorage while the useState us used for the displaying of the items
     const repo = Repository();
     if(repo.getAllRecipes() === null) {
         repo.initialize(recipeData);
@@ -64,7 +65,7 @@ export function Home() {
             <div className="reset-block">
                 <p>To reset <br />the list:</p>
                 <button className="button button--reset" onClick={() => {
-                    /*resets the list of yarns to the original set of recipes from recipeData*/
+                    /*resets the list of recipes to the original set of recipes from recipeData*/
                     repo.initialize(recipeData);
                     setRecipes(repo.getAllRecipes());
                 }}>Reset</button>

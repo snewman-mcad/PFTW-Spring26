@@ -61,6 +61,9 @@ h2 {
   font-family: var(--font-medium), Avenir, sans-serif;
   font-size: 2rem;
 }
+p {
+  font-size: 1rem;
+}
 
 .subhead-area {
   margin: 1rem 2rem 2rem;
@@ -71,10 +74,28 @@ h2 {
 .searchbar {
   font-size: 1.5rem;
 }
-.collection {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    gap: 3rem;
+
+/* changing grid of recipes based on screen width */
+@media screen and (min-width: 1200px) {
+  .collection {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      gap: 3rem;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .collection {
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: 3rem;
+  }
+}
+@media screen and (max-width: 799px) {
+  .collection {
+      display: grid;
+      grid-template-columns: auto;
+      gap: 3rem;
+  }
 }
 
 /* button styles */

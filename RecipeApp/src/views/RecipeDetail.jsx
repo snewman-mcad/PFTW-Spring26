@@ -26,8 +26,9 @@ export function RecipeDetail() {
                 <div className="container">
                     <div className="top-block">
                         <div>
-                            <h2>Ingredients</h2>
+                            <h2 className='heading2'>Ingredients</h2>
                             <ul>
+                                {/* mapping the array of ingredients objects to get their values */}
                                 {selectedRecipe.ingredients.map((ingredient) => {
                                 return (<li key={ingredient.value}>{ingredient.value}</li>)
                                 })}
@@ -36,20 +37,23 @@ export function RecipeDetail() {
                         <img src={selectedRecipe.image} alt={selectedRecipe.alt} />
                     </div>
                     <div>
-                        <h2>Directions</h2>
+                        <h2 className='heading2'>Directions</h2>
                         <ol>
+                            {/* mapping the array of directions objects to get their values */}
                             {selectedRecipe.directions.map((direction) => {
                             return (<li key={direction.value}>{direction.value}</li>)
                             })}
                         </ol>
                     </div>
-                    <h2>Notes</h2>
+                    <h2 className='heading2'>Notes</h2>
+                    {/* mapping the array of note objects to get their values */}
                     <div>{selectedRecipe.note.map((singleNote) =>{
-                        return (<p key={singleNote.value}>{singleNote.value}</p>)
+                        return (<p key={singleNote.value} className='normal-text'>{singleNote.value}</p>)
                     })}</div>
                 </div>
             </div>)
             : (
+                // displaying the back to home link and below paragraph if the page isn't found
                 <div>
                     <NavLink to="/" className={"back-link"}>| Back to Home |</NavLink>
                     <p className="recipe-error">The recipe could not be found.</p>
